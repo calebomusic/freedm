@@ -1,11 +1,7 @@
-const path = require('path');
-
 module.exports = {
-  context: __dirname,
-  entry: 'frontend/freedm.jsx',
+  entry: './frontend/freedm.jsx',
   output: {
-    path: path.join(__dirname, 'app', 'assets', 'javascripts'),
-    filename: 'bundle.js'
+    filename: './bundle.js'
   },
   resolve: {
     extensions: ['', '.js', '.jsx']
