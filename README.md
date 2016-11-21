@@ -21,5 +21,3 @@ Sequencer was written in JavaScript and utilized Web Audio API.
 - Edit virtual synthesizer - frequencies, oscillators, etc.
 - Manipulate volume of each sound
 - Recording
-
-##
