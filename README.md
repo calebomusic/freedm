@@ -1,6 +1,6 @@
-# Sequencer
+# Freedm
 
-Sequencer is a music creation app that comes with 20 different sounds contained. The drum kit sound pack includes standard sounds like kicks, claps, and snares and the melodic sound pack includes sampled musical instruments.
+Freedm is a music creation app that comes with 20 different sounds contained. The drum kit sound pack includes standard sounds like kicks, claps, and snares and the melodic sound pack includes sampled musical instruments.
 
 ## Technologies
 
