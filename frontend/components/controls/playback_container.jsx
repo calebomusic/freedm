@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import Playback from './playback';
 // Actions
 import { startPlayback, stopPlayback } from '../../actions/playback_actions';
+import { updateColumn } from '../../actions/column_actions'
 
 const mapStateToProps = state => ({
   playback: state.playback,
@@ -12,7 +13,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   requestPlaybacks: () => dispatch(startPlayback()),
-  createPlayback: playback => dispatch(stopPlayback(playback))
+  createPlayback: () => dispatch(stopPlayback()),
+  updateColumn: () => dispatch(updateColumn())
 });
 
 export default connect(
