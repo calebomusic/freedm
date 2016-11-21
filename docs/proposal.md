@@ -26,7 +26,7 @@ Bonus features:
 
 This app will consist of a single screen with a board, instructions, and nav links to the Github repo.
 
-![Wireframe](https://github.com/kwokeric/sqncr/blob/master/assets/astrohop.png)
+![Wireframe](https://github.com/calebomusic/freedm/blob/master/docs/sequencer.png)
 
 ## Architecture and Technologies
 
