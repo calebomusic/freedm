@@ -6,8 +6,11 @@ import Controls from 'controls_container';
 
 const App = () => {
   return(
-    <div className='app-header'>
-      
+    <div>
+      <div className='app-header'>
+        <Controls />
+      </div>
+      <BoardContainer />
     </div>
   )
 }
