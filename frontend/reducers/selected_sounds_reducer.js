@@ -1,28 +1,34 @@
-import { RECEIVE_SELECTED_SOUNDS,
-         RECEIVE_SELECTED_SOUNDS,
-         REMOVE_SELECTED_SOUNDS,
-         SELECTED_SOUNDS_ERROR
+import { ADD_SELECTED_SOUND,
+         REMOVE_SELECTED_SOUND,
+         CLEAR_SELECTED_SOUNDS
        } from '../actions/selected_sounds_actions';
 import merge from 'lodash/merge';
 
+const nullState = {};
 
-const SelectedSoundsReducer = (state = {}, action) => {
+for (let i = 1; i < 17; i++) {
+  let cells = {};
+  for (let j = 1; j < 17; j++) {
+    cells[j] = false;
+  }
+  nullState[i] = cells;
+}
+
+// const demoState = {};
+
+const SelectedSoundsReducer = (state = nullState, action) => {
+  Object.freeze(state);
+  let newState = merge({}, state);
+
   switch(action.type){
-    case RECEIVE_SELECTED_SOUNDS:
-      let newState = {};
-      action.selected_sounds.forEach(selected_sounds => {
-        newState[selected_sounds.id] = selected_sounds;
-      });
+    case ADD_SELECTED_SOUND:
+      newState[action.col][action.track] = true;
       return newState;
-    case RECEIVE_SELECTED_SOUNDS:
-      const newSelectedSounds = {[action.selected_sounds.id]: action.selected_sounds};
-      return merge({}, state, newSelectedSounds);
-    case REMOVE_SELECTED_SOUNDS:
-      newState = merge({}, state);
-      delete newState[action.selected_sounds.id];
+    case REMOVE_SELECTED_SOUND:
+      newState[action.col][action.track] = false;
       return newState;
-    case SELECTED_SOUNDS_ERROR:
-      alert(action.error);
+    case CLEAR_SELECTED_SOUNDS:
+      return nullState;
     default:
       return state;
   }
