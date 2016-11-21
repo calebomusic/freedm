@@ -14,4 +14,6 @@ const RootReducer = combineReducers({
   selectedSounds: SelectedSoundsReducer,
   tabs: TabReducer,
   volume: VolumeReducer
-})
+});
+
+export default RootReducer;
