@@ -1,18 +1,13 @@
 import { connect } from 'react-redux';
 import Board from './board';
 // Actions
-import { requestBoards,
-         createBoard,
-         destroyBoard
-       } from '../../actions/board_actions';
+import { updateTab } from '../../actions/tab_actions';
 
 const mapStateToProps = state => ({
-  boards: state.boards
 });
 
 const mapDispatchToProps = dispatch => ({
-  requestBoards: () => dispatch(requestBoards()),
-  createBoard: board => dispatch(createBoard(board))
+  updateTab: tab => dispatch(updateTab(tab))
 });
 
 export default connect(
