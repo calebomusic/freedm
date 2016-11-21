@@ -10,16 +10,16 @@ class Board extends React.Component {
     this.tab = "drums";
   }
 
-  handleClick() {
-
+  handleClick(tab) {
+    this.tab = tab;
   }
 
   render() {
     return(
       <div className="board-container">
         <div className="tab-buttons">
-          <div className="btn-drums">DRUMS</div>
-          <div className="btn-melody">MELODY</div>
+          <div className="btn-drums" onClick={this.handleClick("drums")}>DRUMS</div>
+          <div className="btn-melody" onClick={this.handleClick("melody")}>MELODY</div>
         </div>
 
         <TabContainer tab={this.tab} />
