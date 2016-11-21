@@ -7,6 +7,13 @@ class Tab extends React.Component {
     super(props);
   }
 
+  drums() {
+    const tracks =  [
+      "Kick1",
+      
+    ]
+  }
+
   render() {
     return(
 

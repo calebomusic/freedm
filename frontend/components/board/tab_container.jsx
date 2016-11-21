@@ -6,8 +6,9 @@ import { requestTabs,
          destroyTab
        } from '../../actions/tab_actions';
 
-const mapStateToProps = state => ({
-  tabs: state.tabs
+const mapStateToProps = ({tab, selectedSounds}) => ({
+  tab,
+  selectedSounds
 });
 
 const mapDispatchToProps = dispatch => ({
