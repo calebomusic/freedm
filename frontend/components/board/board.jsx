@@ -16,7 +16,12 @@ class Board extends React.Component {
 
   render() {
     return(
-      <div className="board">
+      <div className="board-container">
+        <div className="tab-buttons">
+          <div className="btn-drums">DRUMS</div>
+          <div className="btn-melody">MELODY</div>
+        </div>
+
         <TabContainer tab={this.tab} />
       </div>
     );

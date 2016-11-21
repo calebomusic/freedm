@@ -7,7 +7,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  updateTab: () => dispatch(updateTab())
+  updateTab: tab => dispatch(updateTab(tab))
 });
 
 export default connect(

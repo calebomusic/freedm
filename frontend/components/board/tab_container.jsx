@@ -1,19 +1,19 @@
 import { connect } from 'react-redux';
 import Tab from './tab';
 // Actions
-import { requestTabs,
-         createTab,
-         destroyTab
-       } from '../../actions/tab_actions';
+import { addSelectedSound,
+         removeSelectedSound
+       } from '../../actions/selected_sounds_actions';
 
-const mapStateToProps = ({tab, selectedSounds}) => ({
+const mapStateToProps = ({tab, selectedSounds, column}) => ({
   tab,
-  selectedSounds
+  selectedSounds,
+  column
 });
 
 const mapDispatchToProps = dispatch => ({
-  requestTabs: () => dispatch(requestTabs()),
-  createTab: tab => dispatch(createTab(tab))
+  addSelectedSound: (col,track) => dispatch(addSelectedSound(col,track)),
+  removeSelectedSound: (col,track) => dispatch(removeSelectedSound(col,track))
 });
 
 export default connect(
