@@ -1,18 +1,18 @@
 import { connect } from 'react-redux';
 import Playback from './playback';
 // Actions
-import { requestPlaybacks,
-         createPlayback,
-         destroyPlayback
-       } from '../../actions/playback_actions';
+import { startPlayback, stopPlayback } from '../../actions/playback_actions';
 
 const mapStateToProps = state => ({
-  playbacks: state.playbacks
+  playback: state.playback,
+  column: state.column,
+  bpm: state.bpm,
+  volume: state.volume
 });
 
 const mapDispatchToProps = dispatch => ({
-  requestPlaybacks: () => dispatch(requestPlaybacks()),
-  createPlayback: playback => dispatch(createPlayback(playback))
+  requestPlaybacks: () => dispatch(startPlayback()),
+  createPlayback: playback => dispatch(stopPlayback(playback))
 });
 
 export default connect(
