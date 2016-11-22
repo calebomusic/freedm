@@ -4,11 +4,11 @@ import Bpm from './bpm';
 import { updateBpm } from '../../../actions/bpm_actions';
 
 const mapStateToProps = state => ({
-  bpms: state.bpms
+  bpms: state.bpm
 });
 
 const mapDispatchToProps = dispatch => ({
-  updateBpm: () => dispatch(updateBpm()),
+  updateBpm: (bpm) => dispatch(updateBpm(bpm)),
 });
 
 export default connect(
