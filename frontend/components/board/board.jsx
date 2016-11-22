@@ -25,8 +25,14 @@ class Board extends React.Component {
     return(
       <div className="board-container">
         <div className="tab-buttons">
-          <div className={`btn-drumkit ${this.isActive("drumkit")}`} onClick={this.changeTab("drumkit")}>DRUMS</div>
-          <div className={`btn-melody ${this.isActive("melody")}`} onClick={this.changeTab("melody")}>MELODY</div>
+          <div className={`btn-drumkit ${this.isActive("drumkit")}`}
+               onClick={this.changeTab("drumkit")}>
+            DRUMS
+          </div>
+          <div className={`btn-melody ${this.isActive("melody")}`}
+               onClick={this.changeTab("melody")}>
+            MELODY
+          </div>
         </div>
 
         <TabContainer tab={this.state.selectedTab} />
