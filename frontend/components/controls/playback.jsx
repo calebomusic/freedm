@@ -6,35 +6,73 @@ class Playback extends React.Component {
   constructor(props) {
     super(props);
 
-    this.playback = window.setInterval(this.step, this.props.bpm / 600)
+
+    this.step = this.step.bind(this);
+    this.start = this.start.bind(this);
+    this.stop = this.stop.bind(this);
+    this.changeColumn = this.changeColumn.bind(this);
   }
 
-  start() {
-    if (this.playback) {
-      this.changeColumn()
+  componentWillMount() {
+    if (this.props.playback) {
+      window.clearInterval(this.play);
+      this.play = window.setInterval(this.step, this.props.bpm);
     }
   }
 
+  componentWillReceiveProps(newProps) {
+    if (newProps.playback) {
+      window.clearInterval(this.play);
+      this.play = window.setInterval(this.step, newProps.bpm);
+    }
+  }
+
+  start() {
+    this.props.startPlayback();
+  }
+
   stop() {
-    clearInterval(this.playback);
-    this.props.stopPlayback;
+    window.clearInterval(this.playback);
+    this.props.stopPlayback();
+    this.props.resetColumn();
   }
 
   step() {
-    if (this.props.playback) {
-      this.start();
+    window.clearInterval(this.playback)
+    if (this.props && this.props.playback) {
+      this.changeColumn();
     }
   }
 
   changeColumn() {
-    window.clearInterval(this.playback)
     this.props.updateColumn()
-    this.playback = window.setInterval(this.changeColumn, this.props.bpm / 600)
   }
 
   render() {
+    let column, button;
+
+    if (this.props) {
+      column = this.props.column
+      if (this.props.playback) {
+        button =
+          <button className='btn-playback-stop'
+                  onClick={this.stop}>
+            Stop
+          </button>
+      } else {
+        button =
+          <button className='btn-playback-play'
+                  onClick={this.start}>
+            Play
+          </button>
+      }
+    }
+
     return(
-      <div>play</div>
+      <div>
+        {button}
+        {column}
+      </div>
     );
   }
 };
