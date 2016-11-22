@@ -38,14 +38,14 @@ class Tab extends React.Component {
 
   melody() {
     const tracks = {
-      9: "C",
-      10: "D",
-      11: "Eb",
-      12: "F",
-      13: "G",
-      14: "Ab",
-      15: "Bb",
-      16: "C2"
+      9: "C2",
+      10: "Bb",
+      11: "Ab",
+      12: "G",
+      13: "F",
+      14: "Eb",
+      15: "D",
+      16: "C1"
     };
 
     let melodyListItems = [];
