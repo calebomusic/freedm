@@ -1,18 +1,14 @@
 import { connect } from 'react-redux';
 import Bpm from './bpm';
 // Actions
-import { requestBpms,
-         createBpm,
-         destroyBpm
-       } from '../../actions/bpm_actions';
+import { updateBpm } from '../../../actions/bpm_actions';
 
 const mapStateToProps = state => ({
   bpms: state.bpms
 });
 
 const mapDispatchToProps = dispatch => ({
-  requestBpms: () => dispatch(requestBpms()),
-  createBpm: bpm => dispatch(createBpm(bpm))
+  updateBpm: () => dispatch(updateBpm()),
 });
 
 export default connect(

@@ -12,8 +12,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  requestPlaybacks: () => dispatch(startPlayback()),
-  createPlayback: () => dispatch(stopPlayback()),
+  startPlayback: () => dispatch(startPlayback()),
+  stopPlayback: () => dispatch(stopPlayback()),
   updateColumn: () => dispatch(updateColumn())
 });
 
