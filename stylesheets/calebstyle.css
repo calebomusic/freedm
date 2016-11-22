@@ -1,0 +1,71 @@
+ul[class^="cells"] {
+  display: block;
+}
+
+/*For cells that are in the current column and are selected*/
+/*li[class^="selected-current-column-cell"] {
+  float: left;
+  height: 40px;
+  width: 40px;
+  margin: 2px;
+  border-radius: 2px;
+  background: linear-gradient(to top right, #333);
+}*/
+
+li[class^="selected-current-column-cell"] {
+  float: left;
+  height: 40px;
+  width: 40px;
+  margin: 2px;
+  border-radius: 2px;
+  background: #60d75d;
+
+    animation:myfirst 3s;
+    -moz-animation:myfirst 3s infinite; /* Firefox */
+    -webkit-animation:myfirst 3s infinite; /* Safari and Chrome */
+    }
+
+
+  @-moz-keyframes myfirst /* Firefox */
+  {
+  25%   {background: #333;}
+  50%  {background: #60d75d;}
+  100%   {background: #60d75d;}
+  }
+
+    @-webkit-keyframes myfirst /* Safari and Chrome */
+  {
+  0%   {background: #60d75d;}
+  50%  {background: #777;}
+  100%   {background: #60d75d;}
+  }
+
+/*For cells that are in the current column but are not selected*/
+li[class^="current-column-cell"] {
+  float: left;
+  height: 40px;
+  width: 40px;
+  margin: 2px;
+  border-radius: 2px;
+  background: linear-gradient(to top right, #777, #444);
+}
+
+/*For selected cells that are not in the current column*/
+li[class^="selected-cell"] {
+  float: left;
+  height: 40px;
+  width: 40px;
+  margin: 2px;
+  border-radius: 2px;
+  background: linear-gradient(to top right, #444, #60d75d);
+}
+
+/* For alternating bars. Consider switching background w/ normal cell background in style.scss*/
+li[class^="alternating-cell"] {
+  float: left;
+  height: 40px;
+  width: 40px;
+  margin: 2px;
+  border-radius: 2px;
+  background: linear-gradient(to top right, #333, #444);
+}

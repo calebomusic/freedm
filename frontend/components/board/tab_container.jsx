@@ -12,8 +12,8 @@ const mapStateToProps = ({selectedSounds, column}, ownProps) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  addSelectedSound: (col,track) => dispatch(addSelectedSound(col,track)),
-  removeSelectedSound: (col,track) => dispatch(removeSelectedSound(col,track))
+  addSelectedSound: (col, track) => dispatch(addSelectedSound(col, track)),
+  removeSelectedSound: (col, track) => dispatch(removeSelectedSound(col, track))
 });
 
 export default connect(
