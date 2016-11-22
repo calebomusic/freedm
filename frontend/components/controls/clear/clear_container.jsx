@@ -4,7 +4,7 @@ import Clear from './clear';
 import { clearSelectedSounds } from '../../../actions/selected_sounds_actions';
 
 const mapStateToProps = state => ({
-  
+
 });
 
 const mapDispatchToProps = dispatch => ({
