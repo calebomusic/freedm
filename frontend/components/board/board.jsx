@@ -7,7 +7,7 @@ class Board extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {selectedTab: "drums"};
+    this.state = {selectedTab: "drumkit"};
   }
 
   changeTab(tab) {
@@ -25,7 +25,7 @@ class Board extends React.Component {
     return(
       <div className="board-container">
         <div className="tab-buttons">
-          <div className={`btn-drums ${this.isActive("drums")}`} onClick={this.changeTab("drums")}>DRUMS</div>
+          <div className={`btn-drumkit ${this.isActive("drumkit")}`} onClick={this.changeTab("drumkit")}>DRUMS</div>
           <div className={`btn-melody ${this.isActive("melody")}`} onClick={this.changeTab("melody")}>MELODY</div>
         </div>
 
