@@ -5,8 +5,8 @@ import { addSelectedSound,
          removeSelectedSound
        } from '../../actions/selected_sounds_actions';
 
-const mapStateToProps = ({tab, selectedSounds, column}) => ({
-  tab,
+const mapStateToProps = ({selectedSounds, column}, ownProps) => ({
+  tab: ownProps.tab,
   selectedSounds,
   column
 });

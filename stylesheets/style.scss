@@ -1,0 +1,58 @@
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  padding: 10%;
+  color: white;
+  font-family: Raleway;
+  text-align: center;
+  font-size: 50px;
+}
+
+#root {
+  width: 1000px;
+  height: 650px;
+  border: 1px solid white;
+}
+
+.board-container {
+  width: 100%;
+  height: 100%;
+}
+
+.tab-buttons {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.btn-drums, .btn-melody {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 30px;
+  background-color: #333;
+  float: left;
+  font-size: 15px;
+  border-radius: 8px 8px 0 0;
+}
+
+.active {
+  background-color: #59af57;
+  cursor: default;
+}
+
+.default {
+  cursor: pointer;
+  color: #999;
+}
+
+.default:hover {
+  background-color: #222;
+}
+
+.tab-drums, .tab-melody {
+  border: 1px solid red;
+}
