@@ -7,15 +7,15 @@ import ClearContainer from './clear/clear_container';
 import AboutModal from './about_modal.jsx';
 
 const Controls = () => (
-  <div className='controls'>
+  <div className='controls-container'>
     <PlaybackContainer />
     <VolumeContainer />
     <BPMContainer />
     <ClearContainer />
   </div>
-)
+);
 
-export default Controls
+export default Controls;
 
 
 // <AboutModal />

@@ -4,4 +4,4 @@ export default (props) => (
   <button onClick={props.clearSelectedSounds}>
     Clear
   </button>
-)
+);

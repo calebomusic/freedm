@@ -6,12 +6,13 @@ class Bpm extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { bpm: 120 }
+    this.state = { bpm: 120 };
     this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange(e){
-    const newBpm = parseInt(e.target.value)
+    e.preventDefault();
+    const newBpm = parseInt(e.target.value);
     this.setState({bpm: newBpm});
     this.props.updateBpm(60000 / newBpm);
   }
@@ -28,6 +29,6 @@ class Bpm extends React.Component {
       </div>
     );
   }
-};
+}
 
 export default Bpm;

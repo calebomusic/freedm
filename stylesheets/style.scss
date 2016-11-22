@@ -11,14 +11,14 @@ body {
   font-size: inherit;
 }
 
-h1[class="header"] {
+.header-container {
   font-size: 50px;
   cursor: default;
+  color: white;
 }
 
-span[class="edm"] {
-  font-size: 50px;
-  color: #60d75d;
+.accent-color {
+  color: #71c56f;
 }
 
 h1[class="header"]:hover {
