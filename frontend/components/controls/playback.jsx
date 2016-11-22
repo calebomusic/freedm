@@ -34,7 +34,7 @@ class Playback extends React.Component {
 
   render() {
     return(
-
+      <div>play</div>
     );
   }
 };

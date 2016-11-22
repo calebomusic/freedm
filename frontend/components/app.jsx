@@ -1,7 +1,7 @@
 import React from 'react';
 
 import BoardContainer from './board/board_container';
-// import Controls from './controls/controls_container';
+import Controls from './controls/controls';
 // import VisualizerContainer from 'visualizer_container';
 
 const App = () => {

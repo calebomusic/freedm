@@ -9,7 +9,7 @@ class Bpm extends React.Component {
 
   render() {
     return(
-
+      <div></div>
     );
   }
 };
