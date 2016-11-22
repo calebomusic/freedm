@@ -30,17 +30,21 @@ class Tab extends React.Component {
     //   </ul>
     // );
     return(
-      <div>Tab Test</div>
+      <div>DRUMS Test</div>
     );
   }
 
   render() {
     let tabName = "tab-" + this.props.tab;
-    return(
-      <div className={tabName}>
-        {this.drums}
-      </div>
-    );
+
+    if (this.props.tab === "drums") {
+      // return(<div>Drums TAB</div>);
+
+      return(this.drums());
+    } else {
+      return(<div>MELODY TAB</div>);
+      // return(this.melody);
+    }
   }
 }
 
