@@ -8,7 +8,25 @@ body {
   color: white;
   font-family: Raleway;
   text-align: center;
+  font-size: inherit;
+}
+
+h1[class="header"] {
   font-size: 50px;
+  cursor: default;
+}
+
+span[class="edm"] {
+  font-size: 50px;
+  color: #60d75d;
+}
+
+h1[class="header"]:hover {
+  color: #60d75d;
+}
+
+span[class="edm"]:hover {
+  color: white;
 }
 
 #root {
@@ -27,16 +45,17 @@ body {
   justify-content: flex-start;
 }
 
-.btn-drums, .btn-melody {
+.btn-drumkit, .btn-melody {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100px;
-  height: 30px;
+  width: 150px;
+  height: 40px;
   background-color: #333;
   float: left;
   font-size: 15px;
   border-radius: 8px 8px 0 0;
+  letter-spacing: 2px;
 }
 
 .active {
@@ -53,6 +72,39 @@ body {
   background-color: #222;
 }
 
-.tab-drums, .tab-melody {
+.tab-drumkit, .tab-melody {
   border: 1px solid red;
+}
+
+.drumkit-tracks-container, .melody-tracks-container {
+  padding: 20px;
+}
+
+li[class^="row"] {
+  display: flex;
+  align-items: center;
+}
+
+div[class^="label"] {
+  width: 200px;
+  float: left;
+  font-size: 20px;
+  text-transform: capitalize;;
+}
+
+ul[class^="cells"] {
+  display: block;
+}
+
+li[class^="cell"] {
+  float: left;
+  height: 40px;
+  width: 40px;
+  margin: 2px;
+  border-radius: 2px;
+  background: linear-gradient(to top right, #222, #444);
+}
+
+li[class^="cell"]:hover {
+  background: linear-gradient(to top right, #111, #222);
 }
