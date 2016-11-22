@@ -1,10 +1,12 @@
-import { UPDATE_COLUMN } from '../actions/column_actions';
+import { UPDATE_COLUMN, RESET_COLUMN } from '../actions/column_actions';
 import merge from 'lodash/merge';
 
-const ColumnReducer = (state = {}, action) => {
+const ColumnReducer = (state = 1, action) => {
   switch(action.type){
     case UPDATE_COLUMN:
-      return action.column;
+      return state % 16 + 1;
+    case RESET_COLUMN:
+      return 1;
     default:
       return state;
   }

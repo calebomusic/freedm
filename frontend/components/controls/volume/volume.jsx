@@ -5,11 +5,26 @@ import React from 'react';
 class Volume extends React.Component {
   constructor(props) {
     super(props);
+
+    this.state = { volume: 0 }
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(e){
+    const newVolume = parseInt(e.target.value)
+    this.setState({volume: newVolume});
+    this.props.updateVolume(newVolume);
   }
 
   render() {
     return(
-      <div></div>
+      <div className='slider-volume'>
+        <input type="range"
+               min={0}
+               max={100}
+               value={this.state.volume}
+               onChange={this.handleChange}></input>
+      </div>
     );
   }
 };

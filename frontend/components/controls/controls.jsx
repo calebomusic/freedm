@@ -9,12 +9,13 @@ import AboutModal from './about_modal.jsx';
 const Controls = () => (
   <div className='controls'>
     <PlaybackContainer />
+    <VolumeContainer />
+    <BPMContainer />
+    <ClearContainer />
   </div>
 )
 
 export default Controls
 
-// <VolumeContainer />
-// <BPMContainer />
-// <ClearContainer />
+
 // <AboutModal />
