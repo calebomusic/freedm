@@ -21,8 +21,8 @@ class Playback extends React.Component {
   }
 
   componentWillReceiveProps(newProps) {
-    debugger
-    if (newProps.playback) {
+    if (newProps.playback && newProps.volume === this.props.volume
+                          && newProps.bpm === this.props.bpm) {
       window.clearInterval(this.play);
       this.play = window.setInterval(this.step, newProps.bpm);
     }
