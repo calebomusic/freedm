@@ -1,6 +1,7 @@
 import React from 'react';
-import LeadSynths from '../../util/lead_synth_1';
 import { isEqual } from 'lodash';
+import LeadSynths from '../../util/lead_synth_1';
+import DrumKit1 from '../../util/drum_kit_1';
 
 // Components
 
@@ -56,7 +57,12 @@ class Playback extends React.Component {
   }
 
   playSounds() {
-    for (let row = 1; row < 17; row++) {
+    for (let row = 1; row < 9; row++) {
+      if (this.props.selectedSounds[row][this.props.column]) {
+        DrumKit1[row].play();
+      }
+    }
+    for (let row = 9; row < 17; row++) {
       if (this.props.selectedSounds[row][this.props.column]) {
         LeadSynths[row].play();
       }
@@ -98,7 +104,6 @@ class Playback extends React.Component {
       <div className="playback-container">
         {pausePlayButton}
         {stopButton}
-        {column}
       </div>
     );
   }

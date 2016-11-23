@@ -15,7 +15,7 @@ class Tab extends React.Component {
     const tracks = {
       1: "hi-hat2",
       2: "hi-hat1",
-      3: "clap",
+      3: "tom",
       4: "snare3",
       5: "snare2",
       6: "snare1",
