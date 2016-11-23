@@ -5,6 +5,10 @@ import React from 'react';
 class Tab extends React.Component {
   constructor(props) {
     super(props);
+
+    this.renderCell = this.renderCell.bind(this);
+    this.addSound = this.addSound.bind(this);
+    this.removeSound = this.removeSound.bind(this);
   }
 
   drumkit() {
@@ -22,7 +26,7 @@ class Tab extends React.Component {
     let drumkitListItems = [];
 
     for (let row = 1; row < 9; row++) {
-      drumkitListItems.push(this.renderRow(row,tracks[row]));
+      drumkitListItems.push(this.renderRow(row, tracks[row]));
     }
 
     return(
@@ -34,20 +38,20 @@ class Tab extends React.Component {
 
   melody() {
     const tracks = {
-      9: "C",
-      10: "D",
-      11: "Eb",
-      12: "F",
-      13: "G",
-      14: "Ab",
-      15: "Bb",
-      16: "C2"
+      9: "C2",
+      10: "Bb",
+      11: "Ab",
+      12: "G",
+      13: "F",
+      14: "Eb",
+      15: "D",
+      16: "C1"
     };
 
     let melodyListItems = [];
 
     for (let row = 9; row < 17; row++) {
-      melodyListItems.push(this.renderRow(row,tracks[row]));
+      melodyListItems.push(this.renderRow(row, tracks[row]));
     }
 
     return(
@@ -61,7 +65,7 @@ class Tab extends React.Component {
     let cells = [];
 
     for (let col = 1; col < 17; col++) {
-      cells.push(<li className={`cell-row${row}-col${col}`} key={`cell-${row}-${col}`}></li>);
+      cells.push(this.renderCell(row, col));
     }
 
     return(
@@ -74,6 +78,53 @@ class Tab extends React.Component {
         </div>
       </li>
     );
+  }
+
+  renderCell(row, col) {
+    if (this.props.selectedSounds[row][col] && this.props.column === col) {
+      return(
+        <li className={`selected-current-column-cell-row${row}-col${col}`}
+            key={`cell-row${row}-col${col}`}
+            onClick={this.removeSound(row, col)}>
+        </li>
+      )
+    } else if (this.props.selectedSounds[row][col]) {
+      return(
+        <li className={`selected-cell-row${row}-col${col}`}
+            key={`cell-row${row}-col${col}`}
+            onClick={this.removeSound(row, col)}>
+        </li>
+      )
+    } else if (this.props.column === col) {
+      return(
+        <li className={`current-column-cell-row${row}-col${col}`}
+            key={`cell-row${row}-col${col}`}
+            onClick={this.addSound(row, col)}>
+        </li>
+      )
+    } else if ( col >= 5 && col <= 8 || col >= 13 && col <= 16) {
+      return(
+        <li className={`alternating-cell-row${row}-col${col}`}
+            key={`cell-row${row}-col${col}`}
+            onClick={this.addSound(row, col)}>
+        </li>
+      )
+    } else {
+      return(
+        <li className={`cell-row${row}-col${col}`}
+            key={`cell-${row}-${col}`}
+            onClick={this.addSound(row, col)}>
+        </li>
+      )
+    }
+  }
+
+  addSound(row, col) {
+    return () => this.props.addSelectedSound(row, col);
+  }
+
+  removeSound(row, col) {
+    return () => this.props.removeSelectedSound(row, col);
   }
 
   render() {
