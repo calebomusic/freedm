@@ -18,25 +18,25 @@ li[class^="selected-current-column-cell"] {
   width: 40px;
   margin: 2px;
   border-radius: 2px;
-  background: #60d75d;
+  background: #488d5a;
 
-  animation:myfirst 3s;
-  -moz-animation:myfirst 3s infinite; /* Firefox */
-  -webkit-animation:myfirst 3s infinite; /* Safari and Chrome */
+  animation:pulse 2s;
+  -moz-animation:pulse 2s infinite; /* Firefox */
+  -webkit-animation:pulse 2s infinite; /* Safari and Chrome */
 }
 
-@-moz-keyframes myfirst /* Firefox */
+@-moz-keyframes pulse /* Firefox */
 {
   25%   {background: #1a2a19;}
-  50%   {background: #60d75d;}
-  100%   {background: #60d75d;}
+  50%   {background: #488d5a;}
+  100%   {background: #488d5a;}
 }
 
-@-webkit-keyframes myfirst /* Safari and Chrome */
+@-webkit-keyframes pulse /* Safari and Chrome */
 {
   25%   {background: #1a2a19;}
-  50%   {background: #60d75d;}
-  100%   {background: #60d75d;}
+  50%   {background: #488d5a;}
+  100%   {background: #488d5a;}
 }
 
 /*For cells that are in the current column but are not selected*/
@@ -60,7 +60,7 @@ li[class^="selected-cell"] {
   width: 40px;
   margin: 2px;
   border-radius: 2px;
-  background: linear-gradient(to top right, #1a2a19, #60d75d);
+  background: linear-gradient(to top right, #1a2a19, #488d5a);
 }
 
 /* For alternating bars. Consider switching background w/ normal cell background in style.scss*/
