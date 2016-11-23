@@ -8,7 +8,8 @@ const mapStateToProps = state => ({
   selectedSounds: state.selectedSounds,
   playback: state.playback,
   column: state.column,
-  bpm: state.bpm
+  bpm: state.bpm,
+  volume: state.volume
 });
 
 const mapDispatchToProps = dispatch => ({
