@@ -1,4 +1,6 @@
 import React from 'react';
+import LeadSynths from '../../util/lead_synth_1';
+import { isEqual } from 'lodash';
 
 // Components
 
@@ -11,6 +13,7 @@ class Playback extends React.Component {
     this.pause = this.pause.bind(this);
     this.stop = this.stop.bind(this);
     this.changeColumn = this.changeColumn.bind(this);
+    this.playSounds = this.playSounds.bind(this);
   }
 
   componentWillMount() {
@@ -22,7 +25,8 @@ class Playback extends React.Component {
 
   componentWillReceiveProps(newProps) {
     if (newProps.playback && newProps.volume === this.props.volume
-                          && newProps.bpm === this.props.bpm) {
+                          && newProps.bpm === this.props.bpm
+                          && isEqual(newProps.selectedSounds, this.props.selectedSounds)) {
       window.clearInterval(this.play);
       this.play = window.setInterval(this.step, newProps.bpm);
     }
@@ -47,6 +51,15 @@ class Playback extends React.Component {
     window.clearInterval(this.playback);
     if (this.props && this.props.playback) {
       this.changeColumn();
+      this.playSounds();
+    }
+  }
+
+  playSounds() {
+    for (let row = 1; row < 17; row++) {
+      if (this.props.selectedSounds[row][this.props.column]) {
+        LeadSynths[row].play();
+      }
     }
   }
 

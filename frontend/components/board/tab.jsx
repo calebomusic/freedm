@@ -87,35 +87,35 @@ class Tab extends React.Component {
             key={`cell-row${row}-col${col}`}
             onClick={this.removeSound(row, col)}>
         </li>
-      )
+      );
     } else if (this.props.selectedSounds[row][col]) {
       return(
         <li className={`selected-cell-row${row}-col${col}`}
             key={`cell-row${row}-col${col}`}
             onClick={this.removeSound(row, col)}>
         </li>
-      )
+      );
     } else if (this.props.column === col) {
       return(
         <li className={`current-column-cell-row${row}-col${col}`}
             key={`cell-row${row}-col${col}`}
             onClick={this.addSound(row, col)}>
         </li>
-      )
+      );
     } else if ( col >= 5 && col <= 8 || col >= 13 && col <= 16) {
       return(
         <li className={`alternating-cell-row${row}-col${col}`}
             key={`cell-row${row}-col${col}`}
             onClick={this.addSound(row, col)}>
         </li>
-      )
+      );
     } else {
       return(
         <li className={`cell-row${row}-col${col}`}
             key={`cell-${row}-${col}`}
             onClick={this.addSound(row, col)}>
         </li>
-      )
+      );
     }
   }
 

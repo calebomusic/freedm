@@ -3,7 +3,7 @@ import Modal from 'react-modal';
 
 class AboutModal extends React.Component {
   constructor() {
-    super()
+    super();
 
     this.state = { open: false};
 
@@ -12,11 +12,11 @@ class AboutModal extends React.Component {
   }
 
   openModal() {
-    this.setState({ open: true})
+    this.setState({ open: true});
   }
 
   closeModal(){
-    this.setState({ open: false})
+    this.setState({ open: false});
   }
 
   render(){
@@ -35,10 +35,10 @@ class AboutModal extends React.Component {
           </div>
           freedm is a music sequencer made by Eric Kwok and Caleb Ontiveros.
 
-          Click on a cell. Press play. freedm. 
+          Click on a cell. Press play. Experience freedm.
         </ Modal>
       </div>
-    )
+    );
   }
 }
 
@@ -66,6 +66,6 @@ const ModalStyle = {
     padding                    : '20px'
 
   }
-}
+};
 
 export default AboutModal;

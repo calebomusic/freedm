@@ -2,9 +2,10 @@ import { connect } from 'react-redux';
 import Playback from './playback';
 // Actions
 import { startPlayback, stopPlayback } from '../../actions/playback_actions';
-import { updateColumn, resetColumn } from '../../actions/column_actions'
+import { updateColumn, resetColumn } from '../../actions/column_actions';
 
 const mapStateToProps = state => ({
+  selectedSounds: state.selectedSounds,
   playback: state.playback,
   column: state.column,
   bpm: state.bpm
