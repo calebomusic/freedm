@@ -20,25 +20,24 @@ li[class^="selected-current-column-cell"] {
   border-radius: 2px;
   background: #60d75d;
 
-    animation:myfirst 3s;
-    -moz-animation:myfirst 3s infinite; /* Firefox */
-    -webkit-animation:myfirst 3s infinite; /* Safari and Chrome */
-    }
+  animation:myfirst 3s;
+  -moz-animation:myfirst 3s infinite; /* Firefox */
+  -webkit-animation:myfirst 3s infinite; /* Safari and Chrome */
+}
 
-
-  @-moz-keyframes myfirst /* Firefox */
-  {
-  25%   {background: #333;}
-  50%  {background: #60d75d;}
+@-moz-keyframes myfirst /* Firefox */
+{
+  25%   {background: #1a2a19;}
+  50%   {background: #60d75d;}
   100%   {background: #60d75d;}
-  }
+}
 
-    @-webkit-keyframes myfirst /* Safari and Chrome */
-  {
-  0%   {background: #60d75d;}
-  50%  {background: #777;}
+@-webkit-keyframes myfirst /* Safari and Chrome */
+{
+  25%   {background: #1a2a19;}
+  50%   {background: #60d75d;}
   100%   {background: #60d75d;}
-  }
+}
 
 /*For cells that are in the current column but are not selected*/
 li[class^="current-column-cell"] {
@@ -47,7 +46,11 @@ li[class^="current-column-cell"] {
   width: 40px;
   margin: 2px;
   border-radius: 2px;
-  background: linear-gradient(to top right, #777, #444);
+  background: linear-gradient(to top right, #333, #888);
+}
+
+li[class^="current-column-cell"]:hover {
+  background: linear-gradient(to top right, #222, #444);
 }
 
 /*For selected cells that are not in the current column*/
@@ -57,7 +60,7 @@ li[class^="selected-cell"] {
   width: 40px;
   margin: 2px;
   border-radius: 2px;
-  background: linear-gradient(to top right, #444, #60d75d);
+  background: linear-gradient(to top right, #1a2a19, #60d75d);
 }
 
 /* For alternating bars. Consider switching background w/ normal cell background in style.scss*/
@@ -67,5 +70,9 @@ li[class^="alternating-cell"] {
   width: 40px;
   margin: 2px;
   border-radius: 2px;
-  background: linear-gradient(to top right, #333, #444);
+  background: linear-gradient(to top right, #111, #333);
+}
+
+li[class^="alternating-cell"]:hover {
+  background: linear-gradient(to top right, #050505, #222);
 }
