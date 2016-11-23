@@ -1,7 +1,8 @@
 import React from 'react';
 
 export default (props) => (
-  <button onClick={props.clearSelectedSounds}>
-    Clear
-  </button>
+  <div className="btn-clear"
+       onClick={props.clearSelectedSounds}>
+    CLEAR
+  </div>
 );
