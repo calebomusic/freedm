@@ -7,8 +7,7 @@ import { updateColumn, resetColumn } from '../../actions/column_actions'
 const mapStateToProps = state => ({
   playback: state.playback,
   column: state.column,
-  bpm: state.bpm,
-  volume: state.volume
+  bpm: state.bpm
 });
 
 const mapDispatchToProps = dispatch => ({

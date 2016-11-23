@@ -12,9 +12,10 @@ class Volume extends React.Component {
 
   handleChange(e){
     e.preventDefault();
+    console.log(this.state.volume);
     const newVolume = parseInt(e.target.value);
     this.setState({volume: newVolume});
-    this.props.updateVolume(newVolume);
+    this.props.updateVolume(newVolume/10);
   }
 
   render() {
@@ -22,7 +23,8 @@ class Volume extends React.Component {
       <div className='slider-volume'>
         <input type="range"
                min={0}
-               max={100}
+               max={10}
+               step={1}
                value={this.state.volume}
                onChange={this.handleChange}></input>
       </div>
