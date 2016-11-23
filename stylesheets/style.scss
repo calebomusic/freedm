@@ -57,32 +57,38 @@ button[class^="btn-playback"]:hover {
   display: flex;
   justify-content: center;
   align-items: center;
+  color: black;
 }
 
-.bpm-input {
+.bpm-display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 70px;
-  height: 25px;
+  height: 28px;
   background-color: #ccc;
-  line-height: 1.65;
   border: none;
   font-size: 16px;
-  text-align: center;
-  transition: 0.2s;
-}
-
-.bpm-input:hover {
-  background-color: white;
-}
-
-.bpm-input:focus {
-  outline: 0;
+  cursor: default;
+  letter-spacing: 2px;
 }
 
 .input-number-decrement,
 .input-number-increment {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 30px;
-  height: 27px;
-  background-color: #ccc;
+  height: 28px;
+  background-color: #aaa;
+  font-size: 20px;
+  transition: 0.2s;
+  cursor: default;
+}
+
+.input-number-decrement:hover,
+.input-number-increment:hover {
+  background-color: #888;
 }
 
 .input-number-decrement {
@@ -95,7 +101,31 @@ button[class^="btn-playback"]:hover {
   border-radius: 0 5px 5px 0;
 }
 
+.btn-clear {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 28px;
+  background-color: #ccc;
+  border: none;
+  font-size: 12px;
+  cursor: default;
+  letter-spacing: 2px;
+  border-radius: 5px;
+  color: black;
+  transition: 0.2s;
+}
+
+.btn-clear:hover {
+  background-color: #aaa;
+}
+
 .controls-2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   height: 100px;
   width: 200px;
   border: 1px solid red;
@@ -124,6 +154,7 @@ button[class^="btn-playback"]:hover {
   font-size: 15px;
   border-radius: 8px 8px 0 0;
   letter-spacing: 2px;
+  transition: 0.2s;
 }
 
 .active {

@@ -7,33 +7,23 @@ class Bpm extends React.Component {
     super(props);
 
     this.state = { bpm: this.props.bpm };
-    this.handleChange = this.handleChange.bind(this);
-  }
-
-  handleChange(e){
-    e.preventDefault();
-    const newBpm = parseInt(e.target.value);
-    this.setState({bpm: newBpm});
-    this.props.updateBpm(60000 / newBpm);
+    this.handleDecrement = this.handleDecrement.bind(this);
+    this.handleIncrement = this.handleIncrement.bind(this);
   }
 
   handleDecrement(e) {
     e.preventDefault();
-    let val = $(".bpm-input").val();
-    if (val <= 60) {
-      $(".bpm-input").val(60);
-    } else {
-      $(".bpm-input").val(val-1);
+    if (this.state.bpm > 60) {
+      this.state.bpm --;
+      this.props.updateBpm(60000 / this.state.bpm);
     }
   }
 
   handleIncrement(e) {
     e.preventDefault();
-    let val = parseInt($(".bpm-input").val());
-    if (val >= 160) {
-      $(".bpm-input").val(160);
-    } else {
-      $(".bpm-input").val(val+1);
+    if (this.state.bpm < 160) {
+      this.state.bpm ++;
+      this.props.updateBpm(60000 / this.state.bpm);
     }
   }
 
@@ -41,16 +31,12 @@ class Bpm extends React.Component {
     return(
       <div className='bpm-container'>
         <div className="input-number-decrement"
-              onClick={this.handleDecrement}>–</div>
-        <input className='bpm-input'
-               type="number"
-               min={60}
-               max={160}
-               step={1}
-               value={this.state.bpm}
-               onChange={this.handleChange}></input>
+             onMouseDown={this.handleDecrement}>–</div>
+        <div className='bpm-display'>
+          {this.state.bpm}
+        </div>
         <div className="input-number-increment"
-             onClick={this.handleIncrement}>+</div>
+             onMouseDown={this.handleIncrement}>+</div>
       </div>
     );
   }
