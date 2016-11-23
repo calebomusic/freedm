@@ -20,10 +20,13 @@ class Header extends React.Component {
 
   render() {
     return(
-      <div className="header-container"
-           onMouseEnter={this.handleHover}
-           onMouseLeave={this.handleLeave}>
-        <span className="fre">fre</span><span className="edm accent-color">edm</span>
+      <div className="header-container">
+        <span className="fre"
+              onMouseEnter={this.handleHover}
+              onMouseLeave={this.handleLeave}>fre</span>
+        <span className="edm accent-color"
+              onMouseEnter={this.handleHover}
+              onMouseLeave={this.handleLeave}>edm</span>
       </div>
     );
   }

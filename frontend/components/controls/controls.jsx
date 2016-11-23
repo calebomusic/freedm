@@ -8,10 +8,14 @@ import AboutModal from './about_modal.jsx';
 
 const Controls = () => (
   <div className='controls-container'>
-    <PlaybackContainer />
-    <VolumeContainer />
-    <BPMContainer />
-    <ClearContainer />
+    <div className="controls-1">
+      <PlaybackContainer />
+      <BPMContainer />
+    </div>
+    <div className="controls-2">
+      <VolumeContainer />
+      <ClearContainer />
+    </div>
   </div>
 );
 

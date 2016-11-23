@@ -63,13 +63,13 @@ class Playback extends React.Component {
         pausePlayButton =
           <button className='btn-playback-pause'
                   onClick={this.pause}>
-            Pause
+            <i className="fa fa-pause" aria-hidden="true"></i>
           </button>;
       } else {
         pausePlayButton =
           <button className='btn-playback-play'
                   onClick={this.start}>
-            Play
+            <i className="fa fa-play" aria-hidden="true"></i>
           </button>;
       }
     }
@@ -77,11 +77,11 @@ class Playback extends React.Component {
     let stopButton =
       <button className='btn-playback-stop'
               onClick={this.stop}>
-        Stop
+        <i className="fa fa-stop" aria-hidden="true"></i>
       </button>;
 
     return(
-      <div>
+      <div className="playback-container">
         {pausePlayButton}
         {stopButton}
         {column}
