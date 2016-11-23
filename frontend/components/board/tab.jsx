@@ -13,14 +13,14 @@ class Tab extends React.Component {
 
   drumkit() {
     const tracks = {
-      1: "kick1",
-      2: "kick2",
-      3: "snare1",
-      4: "snare2",
-      5: "snare3",
-      6: "hi-hat1",
-      7: "hi-hat2",
-      8: "clap"
+      8: "kick1",
+      7: "kick2",
+      6: "snare1",
+      5: "snare2",
+      4: "snare3",
+      3: "clap",
+      2: "hi-hat1",
+      1: "hi-hat2",
     };
 
     let drumkitListItems = [];
@@ -61,7 +61,7 @@ class Tab extends React.Component {
     );
   }
 
-  renderRow(row,track) {
+  renderRow(row, track) {
     let cells = [];
 
     for (let col = 1; col < 17; col++) {
