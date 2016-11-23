@@ -6,12 +6,13 @@ class Volume extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { volume: 0 }
+    this.state = { volume: 0 };
     this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange(e){
-    const newVolume = parseInt(e.target.value)
+    e.preventDefault();
+    const newVolume = parseInt(e.target.value);
     this.setState({volume: newVolume});
     this.props.updateVolume(newVolume);
   }
@@ -27,6 +28,6 @@ class Volume extends React.Component {
       </div>
     );
   }
-};
+}
 
 export default Volume;

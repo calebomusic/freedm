@@ -11,29 +11,97 @@ body {
   font-size: inherit;
 }
 
-h1[class="header"] {
-  font-size: 50px;
-  cursor: default;
-}
-
-span[class="edm"] {
-  font-size: 50px;
-  color: #60d75d;
-}
-
-h1[class="header"]:hover {
-  color: #60d75d;
-}
-
-span[class="edm"]:hover {
-  color: white;
-}
-
 #root {
   width: 1000px;
   height: 650px;
   border: 1px solid white;
 }
+
+.header-container {
+  font-size: 50px;
+  cursor: default;
+  color: white;
+  transition: 0.5s;
+}
+
+.accent-color {
+  color: #71c56f;
+}
+
+.controls-container {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.controls-1 {
+  height: 100px;
+  width: 200px;
+  border: 1px solid red;
+}
+
+button[class^="btn-playback"] {
+  color: #ccc;
+  background-color: transparent;
+  font-size: 30px;
+  border: none;
+  padding: 10px 0;
+  width: 50px;
+  transition: 0.2s;
+}
+
+button[class^="btn-playback"]:hover {
+  color: white;
+}
+
+.bpm-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bpm-input {
+  width: 70px;
+  height: 25px;
+  background-color: #ccc;
+  line-height: 1.65;
+  border: none;
+  font-size: 16px;
+  text-align: center;
+  transition: 0.2s;
+}
+
+.bpm-input:hover {
+  background-color: white;
+}
+
+.bpm-input:focus {
+  outline: 0;
+}
+
+.input-number-decrement,
+.input-number-increment {
+  width: 30px;
+  height: 27px;
+  background-color: #ccc;
+}
+
+.input-number-decrement {
+  border-right: 1px solid #555;
+  border-radius: 5px 0 0 5px;
+}
+
+.input-number-increment {
+  border-left: 1px solid #555;
+  border-radius: 0 5px 5px 0;
+}
+
+.controls-2 {
+  height: 100px;
+  width: 200px;
+  border: 1px solid red;
+}
+
+
 
 .board-container {
   width: 100%;

@@ -6,9 +6,9 @@ class Playback extends React.Component {
   constructor(props) {
     super(props);
 
-
     this.step = this.step.bind(this);
     this.start = this.start.bind(this);
+    this.pause = this.pause.bind(this);
     this.stop = this.stop.bind(this);
     this.changeColumn = this.changeColumn.bind(this);
   }
@@ -31,6 +31,11 @@ class Playback extends React.Component {
     this.props.startPlayback();
   }
 
+  pause() {
+    window.clearInterval(this.playback);
+    this.props.stopPlayback();
+  }
+
   stop() {
     window.clearInterval(this.playback);
     this.props.stopPlayback();
@@ -38,43 +43,51 @@ class Playback extends React.Component {
   }
 
   step() {
-    window.clearInterval(this.playback)
+    window.clearInterval(this.playback);
     if (this.props && this.props.playback) {
       this.changeColumn();
     }
   }
 
   changeColumn() {
-    this.props.updateColumn()
+    this.props.updateColumn();
   }
 
   render() {
-    let column, button;
+    let column, pausePlayButton;
 
     if (this.props) {
-      column = this.props.column
+      column = this.props.column;
+
       if (this.props.playback) {
-        button =
-          <button className='btn-playback-stop'
-                  onClick={this.stop}>
-            Stop
-          </button>
+        pausePlayButton =
+          <button className='btn-playback-pause'
+                  onClick={this.pause}>
+            <i className="fa fa-pause" aria-hidden="true"></i>
+          </button>;
       } else {
-        button =
+        pausePlayButton =
           <button className='btn-playback-play'
                   onClick={this.start}>
-            Play
-          </button>
+            <i className="fa fa-play" aria-hidden="true"></i>
+          </button>;
       }
     }
 
+    let stopButton =
+      <button className='btn-playback-stop'
+              onClick={this.stop}>
+        <i className="fa fa-stop" aria-hidden="true"></i>
+      </button>;
+
     return(
-      <div>
-        {button}
+      <div className="playback-container">
+        {pausePlayButton}
+        {stopButton}
         {column}
       </div>
     );
   }
-};
+}
 
 export default Playback;
