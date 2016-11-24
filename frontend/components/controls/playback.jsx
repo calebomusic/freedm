@@ -59,7 +59,6 @@ class Playback extends React.Component {
   playSounds() {
     for (let row = 1; row < 9; row++) {
       if (this.props.selectedSounds[row][this.props.column]) {
-        console.log(DrumKit1[row]);
         DrumKit1[row].play();
       }
     }
