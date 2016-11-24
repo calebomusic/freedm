@@ -41,7 +41,18 @@ body {
   color: #488d5a;
 }
 
+.controls-and-visualizer-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+#canvas {
+  width: 400px;
+  height: 100px;
+}
+
 .controls-container {
+  width: 450px;
   display: flex;
   justify-content: flex-start;
 }
