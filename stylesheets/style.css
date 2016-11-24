@@ -47,8 +47,9 @@ body {
 }
 
 #canvas {
+  z-index: 100;
   width: 400px;
-  height: 100px;
+  height: auto;
 }
 
 .controls-container {

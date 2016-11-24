@@ -7,24 +7,33 @@ class Visualizer extends React.Component {
   constructor(props) {
     super(props);
 
-    this.canvas = document.getElementsByTagName('canvas')[0];
-
-    if (this.canvas) {
-      this.analyser = Howler.ctx.createAnalyser();
-      Howler.masterGain.connect(this.analyser);
-      this.analyser.connect(Howler.ctx.destination);
-
-      this.canvasCtx = canvas.getContext("2d");
-
-      this.bufferLength = this.analyser.frequencyBinCount;
-      this.dataArray = new Uint8Array(this.bufferLength);
-      this.analyser.getByteTimeDomainData(this.dataArray);
-    } else {
-
-    }
-
-
+    this.setup = this.setup.bind(this);
     this.drawBars = this.drawBars.bind(this);
+  }
+
+  componentWillMount() {
+    this.loading();
+
+    setTimeout(this.setup, 1000);
+    setTimeout(this.drawBars, 1000);
+  }
+
+  loading() {
+    // INSERT COOL LOADER
+  }
+
+  setup() {
+    const canvas = document.getElementsByTagName('canvas')[0];
+
+    this.analyser = Howler.ctx.createAnalyser();
+    Howler.masterGain.connect(this.analyser);
+    this.analyser.connect(Howler.ctx.destination);
+
+    this.canvasCtx = canvas.getContext("2d");
+
+    this.bufferLength = this.analyser.frequencyBinCount;
+    this.dataArray = new Uint8Array(this.bufferLength);
+    this.analyser.getByteTimeDomainData(this.dataArray);
   }
 
   drawBars() {
@@ -59,6 +68,7 @@ class Visualizer extends React.Component {
 
   render() {
     if (this.canvas) {
+      this.setup();
       this.drawBars();
     }
 
