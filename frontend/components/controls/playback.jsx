@@ -19,7 +19,6 @@ class Playback extends React.Component {
 
   componentWillMount() {
     if (this.props.playback) {
-      // window.clearInterval(this.play);
       this.play = window.setInterval(this.step, this.props.bpm);
     }
   }
@@ -28,7 +27,6 @@ class Playback extends React.Component {
     if (newProps.playback && newProps.volume === this.props.volume
                           && newProps.bpm === this.props.bpm
                           && isEqual(newProps.selectedSounds, this.props.selectedSounds)) {
-      // window.clearInterval(this.play);
       this.play = window.setInterval(this.step, newProps.bpm);
     }
   }
