@@ -11,6 +11,7 @@ const Controls = () => (
     <div className="controls-1">
       <PlaybackContainer />
       <BPMContainer />
+      <AboutModal />
     </div>
     <div className="controls-2">
       <VolumeContainer />
@@ -20,6 +21,3 @@ const Controls = () => (
 );
 
 export default Controls;
-
-
-// <AboutModal />

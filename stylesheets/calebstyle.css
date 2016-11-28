@@ -12,12 +12,6 @@ ul[class^="cells"] {
   background: linear-gradient(to top right, #333);
 }*/
 
-#canvas {
-  border: 1px solid;
-  border-color: red;
-  z-index: 1;
-}
-
 li[class^="selected-current-column-cell"] {
   float: left;
   height: 40px;

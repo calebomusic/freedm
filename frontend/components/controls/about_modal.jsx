@@ -11,6 +11,10 @@ class AboutModal extends React.Component {
     this.closeModal = this.closeModal.bind(this);
   }
 
+  componentWillMount() {
+    Modal.setAppElement('body');
+  }
+
   openModal() {
     this.setState({ open: true});
   }
@@ -22,8 +26,8 @@ class AboutModal extends React.Component {
   render(){
     return(
       <div>
+        <label name='?'></label>
         <button className='btn-about'
-                value='?'
                 onClick={this.openModal}>
         </button>
         <Modal isOpen={this.state.open}
@@ -52,6 +56,8 @@ const ModalStyle = {
     backgroundColor   : 'rgba(255, 255, 255, 0.75)'
   },
   content : {
+    font                       : 'inherit',
+    fontColor                  : 'black',
     position                   : 'absolute',
     top                        : '40px',
     left                       : '40px',
