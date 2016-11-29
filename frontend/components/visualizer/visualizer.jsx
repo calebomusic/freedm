@@ -105,17 +105,17 @@ class Visualizer extends React.Component {
   render() {
     return(
       <div className="vis-toggle-container">
-        <div className={`btn-bars ${this.isActive("bars")}`}
+        <div className={`toggle-bars ${this.isActive("bars")}`}
              onClick={this.toggleVisualizer("line")}>
-          BARS
+          <i className="fa fa-bar-chart" aria-hidden="true"></i>
         </div>
-        <div className={`btn-line ${this.isActive("line")}`}
+        <div className={`toggle-line ${this.isActive("line")}`}
              onClick={this.toggleVisualizer("none")}>
-          LINE
+          <i className="fa fa-line-chart" aria-hidden="true"></i>
         </div>
-        <div className={`btn-none ${this.isActive("none")}`}
+        <div className={`toggle-none ${this.isActive("none")}`}
              onClick={this.toggleVisualizer("bars")}>
-          NONE
+          <i className="fa fa-ban" aria-hidden="true"></i>
         </div>
       </div>
     );
