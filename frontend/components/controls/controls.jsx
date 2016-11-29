@@ -11,11 +11,11 @@ const Controls = () => (
     <div className="controls-1">
       <PlaybackContainer />
       <BPMContainer />
-      <AboutModal />
     </div>
     <div className="controls-2">
       <VolumeContainer />
       <ClearContainer />
+      <AboutModal />
     </div>
   </div>
 );
