@@ -3,8 +3,6 @@ import { isEqual } from 'lodash';
 import LeadSynths from '../../util/lead_synth_1';
 import DrumKit1 from '../../util/drum_kit_1';
 
-// Components
-
 class Playback extends React.Component {
   constructor(props) {
     super(props);
@@ -22,6 +20,22 @@ class Playback extends React.Component {
       window.clearInterval(this.play);
       this.play = window.setInterval(this.step, this.props.bpm);
     }
+  }
+
+  componentDidMount() {
+    let scrollTicker;
+    document.getElementsByClassName('cell-container')[0].addEventListener('scroll', (e) => {
+      e.preventDefault()
+      console.log('hey');
+      window.clearInterval(this.play);
+      this.play = window.setInterval(this.step, this.props.bpm);
+    });
+
+    document.addEventListener('scroll', (e) => {
+      e.preventDefault();
+      window.clearInterval(this.play);
+      this.play = window.setInterval(this.step, this.props.bpm);
+    });
   }
 
   componentWillReceiveProps(newProps) {

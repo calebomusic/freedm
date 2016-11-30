@@ -15,11 +15,9 @@ const Controls = () => (
     <div className="controls-2">
       <VolumeContainer />
       <ClearContainer />
+      <AboutModal />
     </div>
   </div>
 );
 
 export default Controls;
-
-
-// <AboutModal />
