@@ -10,15 +10,12 @@ class Visualizer extends React.Component {
     this.state = {visualizer: "bars"};
 
     this.setup = this.setup.bind(this);
-    this.drawLine = this.drawLine.bind(this);
-    this.drawBars = this.drawBars.bind(this);
+    this.draw = this.draw.bind(this);
   }
 
   componentWillMount() {
-    // setTimeout(this.setupLine, 100);
-    // setTimeout(this.drawLine, 100);
     setTimeout(this.setup, 100);
-    setTimeout(this.drawBars, 100);
+    setTimeout(this.draw, 100);
   }
 
   toggleVisualizer(type) {
@@ -34,69 +31,36 @@ class Visualizer extends React.Component {
 
   setup() {
     const canvas = document.getElementsByTagName('canvas')[0];
+    this.WIDTH = canvas.width;
+    this.HEIGHT = canvas.height;
 
     this.analyser = Howler.ctx.createAnalyser();
     Howler.masterGain.connect(this.analyser);
     this.analyser.connect(Howler.ctx.destination);
-
     this.canvasCtx = canvas.getContext("2d");
-
-    // // this.bufferLength = this.analyser.frequencyBinCount;
-    // this.bufferLength = 800;
-    // this.dataArray = new Uint8Array(this.bufferLength);
-    // this.analyser.getByteTimeDomainData(this.dataArray);
 
     this.analyser.fftSize = 256;
     this.bufferLength = this.analyser.frequencyBinCount;
     this.dataArray = new Uint8Array(this.bufferLength);
   }
 
-  drawLine() {
-    const drawVisual = requestAnimationFrame(this.drawLine);
-    this.analyser.getByteTimeDomainData(this.dataArray);
-    this.canvasCtx.fillStyle = 'rgb(200, 200, 200)';
-    this.canvasCtx.fillRect(0, 0, 450, 150);
-    this.canvasCtx.lineWidth = 2;
-    this.canvasCtx.strokeStyle = 'rgb(0, 0, 0)';
-    this.canvasCtx.beginPath();
-
-    const sliceWidth = 450 * 1.0 / this.bufferLength;
-    let x = 0;
-
-    for (var i = 0; i < this.bufferLength; i++) {
-      const v = this.dataArray[i] / 128.0;
-      var y = v * 450 / 2;
-
-      if (i === 0) {
-        this.canvasCtx.moveTo(x, y);
-      } else {
-        this.canvasCtx.lineTo(x, y);
-      }
-
-      x += sliceWidth;
-    }
-
-    this.canvasCtx.lineTo(450, 110/2);
-    this.canvasCtx.stroke();
-  }
-
-  drawBars() {
-    this.canvasCtx.clearRect(0, 0, 450, 150);
-    const drawVisual = requestAnimationFrame(this.drawBars);
+  draw() {
+    this.canvasCtx.clearRect(0, 0, this.WIDTH, this.HEIGHT);
+    const drawVisual = requestAnimationFrame(this.draw);
     this.analyser.getByteFrequencyData(this.dataArray);
 
-    this.canvasCtx.fillStyle = 'rgb(200, 200, 200)';
-    this.canvasCtx.fillRect(0, 0, 450, 150);
+    this.canvasCtx.fillStyle = 'rgb(50, 50, 50)';
+    this.canvasCtx.fillRect(0, 0, this.WIDTH, this.HEIGHT);
 
-    var barWidth = (450 / this.bufferLength) * 2.5;
+    var barWidth = (this.WIDTH / this.bufferLength) * 2.5;
     var barHeight;
     var x = 0;
 
     for(var i = 0; i < this.bufferLength; i++) {
       barHeight = this.dataArray[i];
 
-      this.canvasCtx.fillStyle = `rgb(${barHeight/2+30},${barHeight/2+55},${barHeight/2+30})`;
-      this.canvasCtx.fillRect(x,110-barHeight/2,barWidth,barHeight/2);
+      this.canvasCtx.fillStyle = `rgb(${barHeight},${barHeight+25},${barHeight})`;
+      this.canvasCtx.fillRect(x,this.HEIGHT-barHeight/2,barWidth,barHeight/2);
 
       x += barWidth + 1;
     }
