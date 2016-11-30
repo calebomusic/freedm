@@ -58,12 +58,14 @@ const ModalStyle = {
     zIndex            : 2
   },
   content : {
-    zIndex                    : 3,
+    zIndex                     : 3,
     borderColor                : '#488d5a',
     position                   : 'absolute',
     color                      : '#ffffff',
-    left                       : '500px',
-    top                        : '100px',
+    left                       : '50%',
+    top                        : '40%',
+    marginLeft                 : '-200px',
+    marginTop                  : '-100px',
     border                     : '5px solid #488d5a',
     background                 : 'linear-gradient(to top right, #333, #888)',
     overflow                   : 'auto',

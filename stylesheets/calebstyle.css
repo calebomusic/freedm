@@ -95,13 +95,15 @@ li[class^="alternating-cell"]:hover {
 }
 
 .btn-about:hover {
-  background-color: #aaa;
+  background-color: #888;
 }
 
 .modal-content {
   padding: 10px;
   color: white;
   font-size: 20px;
+  letter-spacing: 1px;
+  line-height: 1.5;
 }
 
 ul[class^="cells"] {
@@ -141,9 +143,8 @@ li[class^="label"] {
   margin-bottom: 2px;
 }
 
-
 .drumkit-tracks-container, .melody-tracks-container {
-  height: 410px;
+  height: 350px;
   display: flex;
   flex-direction: row;
   overflow: none;
