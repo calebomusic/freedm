@@ -6,7 +6,7 @@ import PlaybackReducer from './playback_reducer';
 import SelectedSoundsReducer from './selected_sounds_reducer';
 import TabReducer from './tab_reducer';
 import VolumeReducer from './volume_reducer';
-import InstrumentsReducer from './instrument_reducer'
+import InstrumentsReducer from './instruments_reducer'
 
 const RootReducer = combineReducers({
   bpm: BPMReducer,
