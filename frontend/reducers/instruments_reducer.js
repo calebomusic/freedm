@@ -1,5 +1,6 @@
 import { ADD_INSTRUMENT,
          REMOVE_INSTRUMENT } from '../actions/instruments_actions';
+
 import merge from 'lodash/merge';
 
 const defaultInstruments = [
