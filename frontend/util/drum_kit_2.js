@@ -1,35 +1,35 @@
 import { Howl } from 'howler';
 
 const hihat2 = new Howl({
-  src: ['samples/drum-kits/1/1-hihat2.wav']
+  src: ['samples/drum-kits/2/2-hihat2.wav']
 });
 
 const hihat1 = new Howl({
-  src: ['samples/drum-kits/1/1-hihat1.wav']
+  src: ['samples/drum-kits/2/2-hihat1.wav']
 });
 
 const tom = new Howl({
-  src: ['samples/drum-kits/1/1-tom.wav']
+  src: ['samples/drum-kits/2/2-tom.wav']
 });
 
 const snare3 = new Howl({
-  src: ['samples/drum-kits/1/1-snare3.wav']
+  src: ['samples/drum-kits/2/2-snare3.wav']
 });
 
 const snare2 = new Howl({
-  src: ['samples/drum-kits/1/1-snare2.wav']
+  src: ['samples/drum-kits/2/2-snare2.wav']
 });
 
 const snare1 = new Howl({
-  src: ['samples/drum-kits/1/1-snare1.wav']
+  src: ['samples/drum-kits/2/2-snare1.wav']
 });
 
 const kick2 = new Howl({
-  src: ['samples/drum-kits/1/1-kick2.wav']
+  src: ['samples/drum-kits/2/2-kick2.wav']
 });
 
 const kick1 = new Howl({
-  src: ['samples/drum-kits/1/1-kick1.wav']
+  src: ['samples/drum-kits/2/2-kick1.wav']
 });
 
 export default {
