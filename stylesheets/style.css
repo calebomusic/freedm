@@ -209,7 +209,7 @@ li[class^="row"] {
   align-items: center;
 }
 
-div[class^="label"] {
+li[class^="label"] {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -220,7 +220,6 @@ div[class^="label"] {
   float: left;
   font-size: 16px;
   letter-spacing: 2px;
-  text-transform: uppercase;
   background: linear-gradient(to top right, #111, #333);
   cursor: default;
 }

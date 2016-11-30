@@ -1,6 +1,5 @@
 import React from 'react';
 import { Howler } from 'howler';
-// Components
 
 class Volume extends React.Component {
   constructor(props) {

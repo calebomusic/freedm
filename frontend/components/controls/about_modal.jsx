@@ -5,7 +5,7 @@ class AboutModal extends React.Component {
   constructor() {
     super();
 
-    this.state = { open: true };
+    this.state = { open: false };
 
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);

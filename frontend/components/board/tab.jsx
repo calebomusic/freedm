@@ -1,6 +1,28 @@
 import React from 'react';
 
-// Components
+
+const DRUM_NAMES = [
+  "hi-hat2",
+  "hi-hat1",
+  "tom",
+  "snare3",
+  "snare2",
+  "snare1",
+  "kick2",
+  "kick1"
+]
+
+const NOTE_NAMES = [
+  "C2",
+  "Bb",
+  "Ab",
+  "G",
+  "F",
+  "Eb",
+  "D",
+  "C1"
+]
+
 
 class Tab extends React.Component {
   constructor(props) {
@@ -9,75 +31,95 @@ class Tab extends React.Component {
     this.renderCell = this.renderCell.bind(this);
     this.addSound = this.addSound.bind(this);
     this.removeSound = this.removeSound.bind(this);
+
+    this.renderCells = this.renderCells.bind(this);
+    // this.newDrumKit = this.newDrumKit.bind(this);
   }
 
-  drumkit() {
-    const tracks = {
-      1: "hi-hat2",
-      2: "hi-hat1",
-      3: "tom",
-      4: "snare3",
-      5: "snare2",
-      6: "snare1",
-      7: "kick2",
-      8: "kick1"
-    };
+  // drumkit() {
+  //   let drumkitListItems = [];
+  //
+  //   for (let row = 1; row < 9; row++) {
+  //     drumkitListItems.push(this.renderRow(row, tracks[row]));
+  //   }
+  //
+  //   return(
+  //     <ul className="drumkit-tracks">
+  //       {drumkitListItems}
+  //     </ul>
+  //   );
+  // }
 
-    let drumkitListItems = [];
+  // newDrumKit() {
+  //   return(
+  //     {this.renderCells()}
+  //   );
+  // }
+  //
+  // melody() {
+  //   let melodyListItems = [];
+  //
+  //   for (let row = 9; row < 17; row++) {
+  //     melodyListItems.push(this.renderRow(row, tracks[row]));
+  //   }
+  //
+  //   return(
+  //     <ul className="melody-tracks">
+  //       {melodyListItems}
+  //     </ul>
+  //   );
+  // }
 
-    for (let row = 1; row < 9; row++) {
-      drumkitListItems.push(this.renderRow(row, tracks[row]));
+  renderCells(start) {
+    const cells = [];
+
+    for (let row = start; row < (start + 8); row++) {
+      let cellRow = [];
+      for (let col = 1; col < 17; col++) {
+        cellRow.push(this.renderCell(row, col));
+      }
+      cells.push(
+        <ul className='cell-row'
+            key={`cell-row-${row}`}>
+          {cellRow}
+        </ul>);
     }
 
-    return(
-      <ul className="drumkit-tracks">
-        {drumkitListItems}
-      </ul>
+    return (
+      <div className="cell-container">
+        {cells}
+      </div>
     );
   }
 
-  melody() {
-    const tracks = {
-      9: "C2",
-      10: "Bb",
-      11: "Ab",
-      12: "G",
-      13: "F",
-      14: "Eb",
-      15: "D",
-      16: "C1"
-    };
+  // renderRow(row, track) {
+  //   let cells = [];
+  //
+  //   for (let col = 1; col < 17; col++) {
+  //     cells.push(this.renderCell(row, col));
+  //   }
+  //
+  //   return(
+  //     <li className={`row-${track}`} key={`row-${track}`}>
+  //       <div className={`label-${track}`}>{track}</div>
+  //       <div className="cell-container">
+  //         <ul className={`cells-${track}`}>
+  //           {cells}
+  //         </ul>
+  //       </div>
+  //     </li>
+  //   );
+  // }
 
-    let melodyListItems = [];
+  renderRowTitleButtons(instrumentName) {
+    const names = instrumentName[0] == 'D' ? DRUM_NAMES : NOTE_NAMES
 
-    for (let row = 9; row < 17; row++) {
-      melodyListItems.push(this.renderRow(row, tracks[row]));
-    }
-
-    return(
-      <ul className="melody-tracks">
-        {melodyListItems}
-      </ul>
-    );
-  }
-
-  renderRow(row, track) {
-    let cells = [];
-
-    for (let col = 1; col < 17; col++) {
-      cells.push(this.renderCell(row, col));
-    }
-
-    return(
-      <li className={`row-${track}`} key={`row-${track}`}>
-        <div className={`label-${track}`}>{track}</div>
-        <div className="cell-container">
-          <ul className={`cells-${track}`}>
-            {cells}
-          </ul>
-        </div>
+    return names.map( name => (
+      <li key={name}
+          className={`label-${name}`}>
+        {name}
       </li>
-    );
+    ));
   }
 
   renderCell(row, col) {
@@ -102,7 +144,7 @@ class Tab extends React.Component {
             onClick={this.addSound(row, col)}>
         </li>
       );
-    } else if ( col >= 5 && col <= 8 || col >= 13 && col <= 16) {
+    } else if ( col % 8 === 0 || ((col % 8) > 4 && (col % 8) < 8)) {
       return(
         <li className={`alternating-cell-row${row}-col${col}`}
             key={`cell-row${row}-col${col}`}
@@ -130,16 +172,24 @@ class Tab extends React.Component {
   render() {
     let tabName = "tab-" + this.props.tab;
 
+    // TODO:// instrument name is a single letter for now. Change to name of instrument object
+
     if (this.props.tab === "drumkit") {
       return(
         <div className="drumkit-tracks-container">
-          {this.drumkit()}
+          <div className='track-labels'>
+            {this.renderRowTitleButtons('D')}
+          </div>
+          {this.renderCells(1)}
         </div>
       );
     } else {
       return(
         <div className="melody-tracks-container">
-          {this.melody()}
+          <div className='track-labels'>
+            {this.renderRowTitleButtons('M')}
+          </div>
+          {this.renderCells(9)}
         </div>
       );
     }
