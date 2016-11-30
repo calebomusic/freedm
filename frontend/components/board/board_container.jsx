@@ -4,6 +4,7 @@ import Board from './board';
 import { updateTab } from '../../actions/tab_actions';
 
 const mapStateToProps = state => ({
+  state: state.instruments
 });
 
 const mapDispatchToProps = dispatch => ({
