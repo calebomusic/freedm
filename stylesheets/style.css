@@ -15,7 +15,7 @@ body {
 #root {
   position: absolute;
   width: 1000px;
-  height: 620px;
+  height: 650px;
   top: 50%;
   left: 50%;
   margin-left: -500px;
@@ -31,6 +31,8 @@ body {
   font-size: 50px;
   cursor: default;
   color: white;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .fre, .edm {
@@ -47,9 +49,10 @@ body {
 }
 
 #canvas {
-  z-index: 1;
-  width: 400px;
-  height: auto;
+  z-index: 10;
+  width: 450px;
+  height: 110;
+  border-radius: 5px;
 }
 
 .controls-container {
@@ -131,6 +134,7 @@ button[class^="btn-playback"]:hover {
   justify-content: center;
   width: 80px;
   height: 28px;
+  margin: 10px 0;
   background-color: #ccc;
   border: none;
   font-size: 12px;
@@ -142,7 +146,7 @@ button[class^="btn-playback"]:hover {
 }
 
 .btn-clear:hover {
-  background-color: #aaa;
+  background-color: #888;
 }
 
 .controls-2 {
@@ -239,4 +243,31 @@ li[class^="cell"] {
 
 li[class^="cell"]:hover {
   background: linear-gradient(to top right, #111, #222);
+}
+
+.vis-toggle-container {
+  position: absolute;
+  top: 150px;
+  left: 510px;
+}
+
+.selected {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 25px;
+  background-color: #bbb;
+  color: black;
+  transition: 0.4s;
+}
+
+.selected:hover {
+  background-color: #888;
+}
+
+.hidden {
+  display: none;
 }
