@@ -19,7 +19,7 @@ body {
   top: 50%;
   left: 50%;
   margin-left: -500px;
-  margin-top: -310px;
+  margin-top: -325px;
   background-color: black;
   border: 2px solid #333;
   border-radius: 15px;
@@ -57,12 +57,28 @@ body {
 }
 
 .controls-container {
-  width: 450px;
+  width: 500px;
   display: flex;
   justify-content: flex-start;
 }
 
 .controls-1 {
+  margin-left: 30px;
+  height: 100px;
+  width: 200px;
+}
+
+.controls-2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100px;
+  width: 200px;
+}
+
+.controls-3 {
+  margin-top: 20px;
   height: 100px;
   width: 200px;
 }
@@ -129,13 +145,13 @@ button[class^="btn-playback"]:hover {
   border-radius: 0 5px 5px 0;
 }
 
-.btn-clear {
+.btn-clear, .btn-about {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 80px;
   height: 28px;
-  margin: 10px 0;
+  margin: 8px 0;
   background-color: #ccc;
   border: none;
   font-size: 12px;
@@ -146,20 +162,13 @@ button[class^="btn-playback"]:hover {
   transition: 0.2s;
 }
 
-.btn-clear:hover {
+.btn-clear {
+  margin-bottom: 15px;
+}
+
+.btn-clear:hover, .btn-about:hover {
   background-color: #888;
 }
-
-.controls-2 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  height: 100px;
-  width: 200px;
-}
-
-
 
 .board-container {
   width: 100%;
@@ -248,21 +257,21 @@ li[class^="cell"]:hover {
 
 .vis-toggle-container {
   position: absolute;
-  top: 150px;
-  left: 510px;
+  top: 135px;
+  left: 393px;
 }
 
 .selected {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
+  width: 80px;
+  height: 28px;
+  border-radius: 5px;
   font-size: 25px;
-  background-color: #bbb;
+  background-color: #ccc;
   color: black;
-  transition: 0.4s;
+  transition: 0.2s;
 }
 
 .selected:hover {

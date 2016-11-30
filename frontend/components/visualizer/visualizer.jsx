@@ -22,10 +22,12 @@ class Visualizer extends React.Component {
     return (e) => {
       e.preventDefault();
       this.setState({visualizer: type});
+      this.setup();
+      this.draw();
     };
   }
 
-  isActive (type) {
+  isActive(type) {
     return ((type === this.state.visualizer) ? "selected" : "hidden" );
   }
 
@@ -45,8 +47,11 @@ class Visualizer extends React.Component {
   }
 
   draw() {
-    this.canvasCtx.clearRect(0, 0, this.WIDTH, this.HEIGHT);
-    const drawVisual = requestAnimationFrame(this.draw);
+    if (this.state.visualizer === "bars") {
+      const drawVisual = requestAnimationFrame(this.draw);
+    } else {
+      return;
+    }
     this.analyser.getByteFrequencyData(this.dataArray);
 
     this.canvasCtx.fillStyle = 'rgb(50, 50, 50)';
@@ -70,12 +75,8 @@ class Visualizer extends React.Component {
     return(
       <div className="vis-toggle-container">
         <div className={`toggle-bars ${this.isActive("bars")}`}
-             onClick={this.toggleVisualizer("line")}>
-          <i className="fa fa-bar-chart" aria-hidden="true"></i>
-        </div>
-        <div className={`toggle-line ${this.isActive("line")}`}
              onClick={this.toggleVisualizer("none")}>
-          <i className="fa fa-line-chart" aria-hidden="true"></i>
+          <i className="fa fa-bar-chart" aria-hidden="true"></i>
         </div>
         <div className={`toggle-none ${this.isActive("none")}`}
              onClick={this.toggleVisualizer("bars")}>
