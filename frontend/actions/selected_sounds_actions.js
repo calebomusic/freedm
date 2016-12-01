@@ -20,12 +20,12 @@ export const clearSelectedSounds = () => ({
   type: CLEAR_SELECTED_SOUNDS
 });
 
-export const extendOnNewInstrument = (startPos) => ({
+export const extendOnNewInstrument = (startRow) => ({
   type: EXTEND_ON_NEW_INSTRUMENT,
-  startPos
+  startRow
 });
 
-export const shrinkOnNewInstrument = (startPos) => ({
+export const shrinkOnNewInstrument = (startRow) => ({
   type: SHRINK_ON_NEW_INSTRUMENT,
-  startPos
+  startRow
 });

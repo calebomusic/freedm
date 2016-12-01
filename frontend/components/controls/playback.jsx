@@ -1,7 +1,9 @@
 import React from 'react';
-import { isEqual } from 'lodash';
+import { isEqual, max } from 'lodash';
+
 import LeadSynths from '../../util/lead_synth_1';
 import DrumKit1 from '../../util/drum_kit_1';
+import Instruments from '../../util/instruments';
 
 class Playback extends React.Component {
   constructor(props) {
@@ -20,13 +22,16 @@ class Playback extends React.Component {
       window.clearInterval(this.play);
       this.play = window.setInterval(this.step, this.props.bpm);
     }
+    // Return max key. Do this in CWRP
+    const instruments = this.props.instruments;
+    this.maxStartRow = instruments[instruments.length - 1].startRow;
   }
 
   componentDidMount() {
     let scrollTicker;
+    // TODO: attempts at handling scrolling. Fix or remove.
     document.getElementsByClassName('cell-container')[0].addEventListener('scroll', (e) => {
-      e.preventDefault()
-      console.log('hey');
+      e.preventDefault();
       window.clearInterval(this.play);
       this.play = window.setInterval(this.step, this.props.bpm);
     });
@@ -44,6 +49,11 @@ class Playback extends React.Component {
                           && isEqual(newProps.selectedSounds, this.props.selectedSounds)) {
       window.clearInterval(this.play);
       this.play = window.setInterval(this.step, newProps.bpm);
+    }
+
+    if (!isEqual(newProps.instruments, this.props.instruments)) {
+      const instruments = this.props.instruments
+      this.maxStartRow = instruments[instruments.length - 1].startRow;
     }
   }
 
@@ -71,17 +81,33 @@ class Playback extends React.Component {
   }
 
   playSounds() {
-    for (let row = 1; row < 9; row++) {
+    // for (let row = 1; row < this.maxKey; row++) {
+    //   if (this.props.selectedSounds[row][this.props.column]) {
+    //     DrumKit1[row].play();
+    //   }
+    // }
+    // for (let row = 9; row < 17; row++) {
+    //   if (this.props.selectedSounds[row][this.props.column]) {
+    //     LeadSynths[row].play();
+    //   }
+    // }
+    for (let row = 1; row < this.maxStartRow + 8; row++) {
       if (this.props.selectedSounds[row][this.props.column]) {
-        DrumKit1[row].play();
+        let instrumentIdx = Math.floor(row / 8);
+        let soundRow = (row % 8 === 0) ? 8 : (row % 8);
+
+        if (row % 8 === 0) {
+          instrumentIdx = Math.floor(row / 8) - 1;
+        }
+
+        let instrumentName = this.props.instruments[instrumentIdx].name;
+
+        Instruments[instrumentName][soundRow].play();
       }
     }
-    for (let row = 9; row < 17; row++) {
-      if (this.props.selectedSounds[row][this.props.column]) {
-        LeadSynths[row].play();
-      }
-    }
+
   }
+
 
   changeColumn() {
     this.props.updateColumn();

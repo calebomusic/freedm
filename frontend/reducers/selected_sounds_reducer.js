@@ -32,7 +32,7 @@ const SelectedSoundsReducer = (state = nullState, action) => {
     case CLEAR_SELECTED_SOUNDS:
       return nullState;
     case EXTEND_ON_NEW_INSTRUMENT:
-      for (var i = startPos; i < startPos + 8; i++) {
+      for (var i = acion.startRow; i < (action.startRow + 8); i++) {
         let cells = {};
         for (let j = 1; j < 17; j++) {
           cells[j] = false;
@@ -42,7 +42,7 @@ const SelectedSoundsReducer = (state = nullState, action) => {
 
       return newState;
     case SHRINK_ON_NEW_INSTRUMENT:
-      for (var i = startPos; i < startPos + 8; i++) {
+      for (var i = action.startPos; i < (action.startPos + 8); i++) {
         delete newState[i];
       }
 

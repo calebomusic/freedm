@@ -5,10 +5,11 @@ import { startPlayback, stopPlayback } from '../../actions/playback_actions';
 import { updateColumn, resetColumn } from '../../actions/column_actions';
 
 const mapStateToProps = state => ({
-  selectedSounds: state.selectedSounds,
-  playback: state.playback,
-  column: state.column,
   bpm: state.bpm,
+  column: state.column,
+  instruments: state.instruments,
+  playback: state.playback,
+  selectedSounds: state.selectedSounds,
   volume: state.volume
 });
 

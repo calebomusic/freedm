@@ -172,9 +172,9 @@ class Tab extends React.Component {
   render() {
     let tabName = "tab-" + this.props.tab;
 
-    // TODO:// instrument name is a single letter for now. Change to name of instrument object
-
-    if (this.props.tab === "drumkit") {
+    // TODO: take out drumkit and melody container classes. Consolidate into one.
+    
+    if (this.props.tab[0] === "D") {
       return(
         <div className="drumkit-tracks-container">
           <div className='track-labels'>
