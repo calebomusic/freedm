@@ -49988,10 +49988,6 @@
 
 	'use strict';
 	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
 	var _howler = __webpack_require__(216);
 	
 	var hihat2 = new _howler.Howl({
@@ -50005,7 +50001,7 @@
 	var tom = new _howler.Howl({
 	  src: ['samples/drum-kits/3/3-tom.wav']
 	});
-	// 
+	//
 	// const snare3 = new Howl({
 	//   src: ['samples/drum-kits/3/3-snare3.wav']
 	// });
@@ -50026,16 +50022,16 @@
 	  src: ['samples/drum-kits/3/3-kick1.wav']
 	});
 	
-	exports.default = {
-	  1: hihat2,
-	  2: hihat1,
-	  3: tom,
-	  4: snare3,
-	  5: snare2,
-	  6: snare1,
-	  7: kick2,
-	  8: kick1
-	};
+	// export default {
+	//   1: hihat2,
+	//   2: hihat1,
+	//   3: tom,
+	//   4: snare3,
+	//   5: snare2,
+	//   6: snare1,
+	//   7: kick2,
+	//   8: kick1
+	// };
 
 /***/ },
 /* 354 */
