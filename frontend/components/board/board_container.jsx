@@ -14,8 +14,8 @@ const mapDispatchToProps = dispatch => ({
   removeInstrument: name => dispatch(removeInstrument(name)),
   addInstrument: name => dispatch(addInstrument(name))
   // Either also dispatch import EXTEND_ON_NEW_INSTRUMENT,
-          //  SHRINK_ON_NEW_INSTRUMENT on the corresponding instrument action in this componentWillMount
-          // or dispatch in instrument middleware
+  // SHRINK_ON_NEW_INSTRUMENT on the corresponding instrument action in this componentWillMount
+  // or dispatch in instrument middleware
 });
 
 export default connect(

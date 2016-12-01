@@ -11,7 +11,7 @@ const App = (props) => {
       <Header />
       <div className="controls-and-visualizer-container">
         <Controls />
-        <canvas id="canvas"></canvas>
+        <canvas id="canvas">Your browser does not support canvas</canvas>
         <Visualizer />
       </div>
       <BoardContainer />

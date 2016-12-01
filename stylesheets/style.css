@@ -234,6 +234,7 @@ li[class^="label"] {
   float: left;
   font-size: 16px;
   letter-spacing: 2px;
+  text-transform: capitalize;
   background: linear-gradient(to top right, #111, #333);
   cursor: default;
 }
