@@ -1,8 +1,19 @@
 import { ADD_INSTRUMENT,
          REMOVE_INSTRUMENT } from '../actions/instruments_actions';
+
 import merge from 'lodash/merge';
 
-const defaultInstruments = []
+const defaultInstruments = [
+  {
+    name: 'DrumKit1',
+    startRow: 1
+  },
+  {
+    name: 'LeadSynth1',
+    startRow: 9
+  }];
+
+
 const InstrumentsReducer = (state = defaultInstruments, action) => {
   switch(action.type){
     case ADD_INSTRUMENT:

@@ -5,10 +5,11 @@ import { addSelectedSound,
          removeSelectedSound
        } from '../../actions/selected_sounds_actions';
 
-const mapStateToProps = ({selectedSounds, column}, ownProps) => ({
-  tab: ownProps.tab,
+const mapStateToProps = ({selectedSounds, column, instruments}, ownProps) => ({
+  column,
+  instruments,
   selectedSounds,
-  column
+  tab: ownProps.tab
 });
 
 const mapDispatchToProps = dispatch => ({

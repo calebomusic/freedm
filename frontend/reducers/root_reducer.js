@@ -11,6 +11,7 @@ import InstrumentsReducer from './instruments_reducer'
 const RootReducer = combineReducers({
   bpm: BPMReducer,
   column: ColumnReducer,
+  instruments: InstrumentsReducer,
   playback: PlaybackReducer,
   selectedSounds: SelectedSoundsReducer,
   tabs: TabReducer,
