@@ -36,10 +36,17 @@ class AboutModal extends React.Component {
                style={ModalStyle}
                >
           <div className='modal-content'>
-            freedm is a music sequencer made by Eric Kwok and Caleb Ontiveros.
+            freedm is a music sequencer made by Eric Kwok and Caleb Ontiveros
             <br></br>
             <br></br>
-            Click on a cell. Press play. Experience freedm.
+            Press PLAY to hear the demo or press CLEAR to create your own sounds
+            <br></br>
+            <br></br>
+            Click on a cell
+            <br></br>
+            Press play
+            <br></br>
+            Experience freedm
           </div>
         </ Modal>
       </div>
@@ -62,18 +69,18 @@ const ModalStyle = {
     borderColor                : '#488d5a',
     position                   : 'absolute',
     color                      : '#ffffff',
-    left                       : '50%',
-    top                        : '40%',
+    left                       : '48%',
+    top                        : '44%',
     marginLeft                 : '-200px',
-    marginTop                  : '-100px',
-    border                     : '5px solid #488d5a',
-    background                 : 'linear-gradient(to top right, #333, #888)',
+    marginTop                  : '-150px',
+    border                     : '5px solid white',
+    background                 : 'linear-gradient(to right top, rgb(23, 41, 51), rgb(72, 141, 90))',
     overflow                   : 'auto',
     WebkitOverflowScrolling    : 'touch',
-    borderRadius               : '4px',
+    borderRadius               : '15px',
     outline                    : 'none',
     padding                    : '30px',
-    height                     : '200px',
+    height                     : '300px',
     width                      : '400px',
   }
 };
