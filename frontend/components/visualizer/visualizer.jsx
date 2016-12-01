@@ -76,8 +76,7 @@ class Visualizer extends React.Component {
 
     for(var i = 0; i < this.bufferLength; i++) {
       barHeight = this.dataArray[i];
-
-      this.canvasCtx.fillStyle = `rgb(${barHeight},${barHeight+25},${barHeight})`;
+      this.canvasCtx.fillStyle = `rgb(${barHeight-75},${barHeight-50},${barHeight-75})`;
       this.canvasCtx.fillRect(x,this.HEIGHT-barHeight/2,barWidth,barHeight/2);
 
       x += barWidth + 1;

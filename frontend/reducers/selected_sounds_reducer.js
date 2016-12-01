@@ -4,21 +4,10 @@ import { ADD_SELECTED_SOUND,
          EXTEND_ON_NEW_INSTRUMENT,
          SHRINK_ON_NEW_INSTRUMENT
        } from '../actions/selected_sounds_actions';
+import { nullState, demoState } from '../util/selected_sounds_states';
 import merge from 'lodash/merge';
 
-const nullState = {};
-
-for (let i = 1; i < 17; i++) {
-  let cells = {};
-  for (let j = 1; j < 17; j++) {
-    cells[j] = false;
-  }
-  nullState[i] = cells;
-}
-
-// const demoState = {};
-
-const SelectedSoundsReducer = (state = nullState, action) => {
+const SelectedSoundsReducer = (state = demoState, action) => {
   Object.freeze(state);
   let newState = merge({}, state);
 
@@ -32,7 +21,7 @@ const SelectedSoundsReducer = (state = nullState, action) => {
     case CLEAR_SELECTED_SOUNDS:
       return nullState;
     case EXTEND_ON_NEW_INSTRUMENT:
-      for (var i = acion.startRow; i < (action.startRow + 8); i++) {
+      for (var i = action.startRow; i < (action.startRow + 8); i++) {
         let cells = {};
         for (let j = 1; j < 17; j++) {
           cells[j] = false;
