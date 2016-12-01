@@ -50005,18 +50005,18 @@
 	var tom = new _howler.Howl({
 	  src: ['samples/drum-kits/3/3-tom.wav']
 	});
-	
-	var snare3 = new _howler.Howl({
-	  src: ['samples/drum-kits/3/3-snare3.wav']
-	});
-	
-	var snare2 = new _howler.Howl({
-	  src: ['samples/drum-kits/3/3-snare2.wav']
-	});
-	
-	var snare1 = new _howler.Howl({
-	  src: ['samples/drum-kits/3/3-snare1.wav']
-	});
+	// 
+	// const snare3 = new Howl({
+	//   src: ['samples/drum-kits/3/3-snare3.wav']
+	// });
+	//
+	// const snare2 = new Howl({
+	//   src: ['samples/drum-kits/3/3-snare2.wav']
+	// });
+	//
+	// const snare1 = new Howl({
+	//   src: ['samples/drum-kits/3/3-snare1.wav']
+	// });
 	
 	var kick2 = new _howler.Howl({
 	  src: ['samples/drum-kits/3/3-kick2.wav']

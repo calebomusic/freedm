@@ -11,18 +11,18 @@ const hihat1 = new Howl({
 const tom = new Howl({
   src: ['samples/drum-kits/3/3-tom.wav']
 });
-
-const snare3 = new Howl({
-  src: ['samples/drum-kits/3/3-snare3.wav']
-});
-
-const snare2 = new Howl({
-  src: ['samples/drum-kits/3/3-snare2.wav']
-});
-
-const snare1 = new Howl({
-  src: ['samples/drum-kits/3/3-snare1.wav']
-});
+// 
+// const snare3 = new Howl({
+//   src: ['samples/drum-kits/3/3-snare3.wav']
+// });
+//
+// const snare2 = new Howl({
+//   src: ['samples/drum-kits/3/3-snare2.wav']
+// });
+//
+// const snare1 = new Howl({
+//   src: ['samples/drum-kits/3/3-snare1.wav']
+// });
 
 const kick2 = new Howl({
   src: ['samples/drum-kits/3/3-kick2.wav']
