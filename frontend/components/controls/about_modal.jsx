@@ -5,7 +5,7 @@ class AboutModal extends React.Component {
   constructor() {
     super();
 
-    this.state = { open: false };
+    this.state = { open: true };
 
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
@@ -21,6 +21,13 @@ class AboutModal extends React.Component {
 
   closeModal(){
     this.setState({ open: false});
+  }
+
+  handleClick() {
+    return (e) => {
+      e.preventDefault();
+      this.closeModal();
+    };
   }
 
   render(){
@@ -47,6 +54,9 @@ class AboutModal extends React.Component {
             Press play
             <br></br>
             Experience freedm
+            <div className="btn-close-modal" onClick={this.handleClick()}>
+              <i className="fa fa-times" aria-hidden="true"></i>
+            </div>
           </div>
         </ Modal>
       </div>
@@ -71,17 +81,18 @@ const ModalStyle = {
     color                      : '#ffffff',
     left                       : '48%',
     top                        : '44%',
-    marginLeft                 : '-200px',
+    marginLeft                 : '-185px',
     marginTop                  : '-150px',
-    border                     : '5px solid white',
-    background                 : 'linear-gradient(to right top, rgb(23, 41, 51), rgb(72, 141, 90))',
+    border                     : '3px solid white',
+    background                 : 'linear-gradient(to right top, rgb(11, 44, 59), rgb(72, 141, 90))',
     overflow                   : 'auto',
     WebkitOverflowScrolling    : 'touch',
     borderRadius               : '15px',
     outline                    : 'none',
-    padding                    : '30px',
-    height                     : '300px',
-    width                      : '400px',
+    padding                    : '40px 30px',
+    height                     : '320px',
+    width                      : '370px',
+    boxShadow                  : '0 0 250px 50px black',
   }
 };
 

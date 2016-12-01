@@ -2,16 +2,6 @@ ul[class^="cells"] {
   display: block;
 }
 
-/*For cells that are in the current column and are selected*/
-/*li[class^="selected-current-column-cell"] {
-  float: left;
-  height: 40px;
-  width: 40px;
-  margin: 2px;
-  border-radius: 2px;
-  background: linear-gradient(to top right, #333);
-}*/
-
 li[class^="selected-current-column-cell"] {
   float: left;
   height: 40px;
@@ -84,6 +74,23 @@ li[class^="alternating-cell"]:hover {
   line-height: 1.5;
 }
 
+.btn-close-modal {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border: 2px solid white;
+  border-radius: 50%;
+  top: 0;
+  right: 1px;
+  transition: 0.4s;
+  cursor: pointer;
+}
+
+.btn-close-modal:hover {
+  border: 2px solid #333;
+  color: #333;
+}
+
 ul[class^="cells"] {
   display: block;
   max-height: 44px;
@@ -127,7 +134,6 @@ li[class^="label"] {
   flex-direction: row;
   overflow: none;
 }
-
 
 .track-labels {
   display: flex;
