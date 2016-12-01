@@ -28,10 +28,13 @@ class Board extends React.Component {
     for (var i = 0; i < this.props.instruments.length; i++) {
       let instrument = this.props.instruments[i];
 
-      tabs.push(<div className={`btn-drumkit ${this.isActive(instrument.name)}`}
-           onClick={this.changeTab(instrument.name)}>
-        {instrument.name}
-      </div>)
+      tabs.push(
+        <div key={`instrument-${i}`}
+             className={`btn-drumkit ${this.isActive(instrument.name)}`}
+             onClick={this.changeTab(instrument.name)}>
+          {instrument.name}
+        </div>
+      )
     }
 
     return tabs;
