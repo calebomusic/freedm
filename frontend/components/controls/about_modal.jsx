@@ -5,10 +5,14 @@ class AboutModal extends React.Component {
   constructor() {
     super();
 
-    this.state = { open: false};
+    this.state = { open: false };
 
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
+  }
+
+  componentWillMount() {
+    Modal.setAppElement('body');
   }
 
   openModal() {
@@ -23,19 +27,20 @@ class AboutModal extends React.Component {
     return(
       <div>
         <button className='btn-about'
-                value='?'
                 onClick={this.openModal}>
+          ABOUT
         </button>
         <Modal isOpen={this.state.open}
                style={ModalStyle}
-               shouldCloseOnOverlayClick={true}>
-          <div className='about-modal-close'
-               onClick={this.closeModal}>
-            X
+               onRequestClose={this.closeModal}
+               style={ModalStyle}
+               >
+          <div className='modal-content'>
+            freedm is a music sequencer made by Eric Kwok and Caleb Ontiveros.
+            <br></br>
+            <br></br>
+            Click on a cell. Press play. Experience freedm.
           </div>
-          freedm is a music sequencer made by Eric Kwok and Caleb Ontiveros.
-
-          Click on a cell. Press play. Experience freedm.
         </ Modal>
       </div>
     );
@@ -49,22 +54,27 @@ const ModalStyle = {
     left              : 0,
     right             : 0,
     bottom            : 0,
-    backgroundColor   : 'rgba(255, 255, 255, 0.75)'
+    backgroundColor   : 'rba(255, 255, 255, 0.75)',
+    zIndex            : 2
   },
   content : {
+    zIndex                     : 3,
+    borderColor                : '#488d5a',
     position                   : 'absolute',
-    top                        : '40px',
-    left                       : '40px',
-    right                      : '40px',
-    bottom                     : '40px',
-    border                     : '1px solid #ccc',
-    background                 : '#fff',
+    color                      : '#ffffff',
+    left                       : '50%',
+    top                        : '40%',
+    marginLeft                 : '-200px',
+    marginTop                  : '-100px',
+    border                     : '5px solid #488d5a',
+    background                 : 'linear-gradient(to top right, #333, #888)',
     overflow                   : 'auto',
     WebkitOverflowScrolling    : 'touch',
     borderRadius               : '4px',
     outline                    : 'none',
-    padding                    : '20px'
-
+    padding                    : '30px',
+    height                     : '200px',
+    width                      : '400px',
   }
 };
 

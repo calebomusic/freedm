@@ -4,7 +4,7 @@ import Bpm from './bpm';
 import { updateBpm } from '../../../actions/bpm_actions';
 
 const mapStateToProps = state => ({
-  bpm: 60000 / state.bpm
+  bpm: state.bpm
 });
 
 const mapDispatchToProps = dispatch => ({

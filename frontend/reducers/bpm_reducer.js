@@ -1,7 +1,7 @@
 import { UPDATE_BPM } from '../actions/bpm_actions';
 import merge from 'lodash/merge';
 
-const BpmReducer = (state = 500, action) => {
+const BpmReducer = (state = 125, action) => {
   switch(action.type){
     case UPDATE_BPM:
       return action.bpm

@@ -13,13 +13,13 @@ const Controls = () => (
       <BPMContainer />
     </div>
     <div className="controls-2">
-      <VolumeContainer />
+      <AboutModal />
       <ClearContainer />
+    </div>
+    <div className="controls-3">
+      <VolumeContainer />
     </div>
   </div>
 );
 
 export default Controls;
-
-
-// <AboutModal />

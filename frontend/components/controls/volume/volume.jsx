@@ -1,21 +1,26 @@
 import React from 'react';
-
-// Components
+import { Howler } from 'howler';
 
 class Volume extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { volume: 0 };
+    this.state = { volume: 7 };
     this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange(e){
     e.preventDefault();
+
     console.log(this.state.volume);
-    const newVolume = parseInt(e.target.value);
-    this.setState({volume: newVolume});
-    this.props.updateVolume(newVolume/10);
+
+    const localVolume = parseInt(e.target.value);
+    const howlerVolume = localVolume / 10;
+
+    this.setState({volume: localVolume});
+
+    this.props.updateVolume(howlerVolume);
+    Howler.volume(howlerVolume)
   }
 
   render() {

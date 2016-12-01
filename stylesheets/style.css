@@ -15,11 +15,11 @@ body {
 #root {
   position: absolute;
   width: 1000px;
-  height: 620px;
+  height: 650px;
   top: 50%;
   left: 50%;
   margin-left: -500px;
-  margin-top: -310px;
+  margin-top: -325px;
   background-color: black;
   border: 2px solid #333;
   border-radius: 15px;
@@ -31,6 +31,8 @@ body {
   font-size: 50px;
   cursor: default;
   color: white;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .fre, .edm {
@@ -41,12 +43,42 @@ body {
   color: #488d5a;
 }
 
+.controls-and-visualizer-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+#canvas {
+  z-index: 1;
+  width: 450px;
+  height: 110px;
+  border-radius: 5px;
+  margin-right: 30px;
+}
+
 .controls-container {
+  width: 500px;
   display: flex;
   justify-content: flex-start;
 }
 
 .controls-1 {
+  margin-left: 30px;
+  height: 100px;
+  width: 200px;
+}
+
+.controls-2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100px;
+  width: 200px;
+}
+
+.controls-3 {
+  margin-top: 20px;
   height: 100px;
   width: 200px;
 }
@@ -113,12 +145,13 @@ button[class^="btn-playback"]:hover {
   border-radius: 0 5px 5px 0;
 }
 
-.btn-clear {
+.btn-clear, .btn-about {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 80px;
   height: 28px;
+  margin: 8px 0;
   background-color: #ccc;
   border: none;
   font-size: 12px;
@@ -129,20 +162,13 @@ button[class^="btn-playback"]:hover {
   transition: 0.2s;
 }
 
-.btn-clear:hover {
-  background-color: #aaa;
+.btn-clear {
+  margin-bottom: 15px;
 }
 
-.controls-2 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  height: 100px;
-  width: 200px;
+.btn-clear:hover, .btn-about:hover {
+  background-color: #888;
 }
-
-
 
 .board-container {
   width: 100%;
@@ -197,7 +223,7 @@ li[class^="row"] {
   align-items: center;
 }
 
-div[class^="label"] {
+li[class^="label"] {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -208,7 +234,6 @@ div[class^="label"] {
   float: left;
   font-size: 16px;
   letter-spacing: 2px;
-  text-transform: uppercase;
   background: linear-gradient(to top right, #111, #333);
   cursor: default;
 }
@@ -228,4 +253,31 @@ li[class^="cell"] {
 
 li[class^="cell"]:hover {
   background: linear-gradient(to top right, #111, #222);
+}
+
+.vis-toggle-container {
+  position: absolute;
+  top: 135px;
+  left: 393px;
+}
+
+.selected {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 28px;
+  border-radius: 5px;
+  font-size: 25px;
+  background-color: #ccc;
+  color: black;
+  transition: 0.2s;
+}
+
+.selected:hover {
+  background-color: #888;
+}
+
+.hidden {
+  display: none;
 }

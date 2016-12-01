@@ -33,7 +33,7 @@ const kick1 = new Howl({
 });
 
 export default {
-  1: hihat1,
+  1: hihat2,
   2: hihat1,
   3: tom,
   4: snare3,
