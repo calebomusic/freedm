@@ -1,6 +1,6 @@
 # Freedm
 
-Freedm is a music creation sequencer app modeled after physical pad sequencer equipment. Users can express their creativity and play any combination of 16 different sounds drum and melodic in a loop. The drum kit sound pack includes standard sounds like kicks, claps, and snares and the melodic sound pack includes sampled musical instruments.
+Freedm is a dynamic music sequencer app created by [Eric Kwok](https://github.com/kwokeric) and [Caleb Ontiveros](https://github.com/calebomusic).
 
 [Live](https://calebomusic.github.io/freedm/index.html)
 
@@ -46,6 +46,7 @@ Below we cover the general application state, the visualizer, and the playback a
           2: false,
           3: true,
           4: false
+          ...
         }
         2: Object,
         3: Object,
@@ -60,36 +61,32 @@ Below we cover the general application state, the visualizer, and the playback a
 
 ### Visualizer
 
-The visualizer was particularly tricky to implement because it required linking the Web Audio API with the Howler.js library - a task with very little documentation. Below is a code snippet for how we analyzed sound coming from Howler objects.
+The visualizer setup required linking the Web Audio API with the Howler.js library.
 
-```
+To extract data from the audio source - a master Howler object that combines individual Howler sounds - we first created an AnalyserNode in the Howler Web Audio context using the `createAnalyser()` method.
+```JavaScript
 this.analyser = Howler.ctx.createAnalyser();
+```
+This master Howler audio source is then connected to the analyzer via the `connect()` method:
+```JavaScript
 Howler.masterGain.connect(this.analyser);
+```
+Finally the masterGain node is directly connected to the destination node:
+```JavaScript
 this.analyser.connect(Howler.ctx.destination);
-
+```
+The fast Fourier transform (FFT) converts a signal from its original domain (in this case, sound waves) to a representation in the frequency domain.
+```JavaScript
 this.analyser.fftSize = 256;
+```
+The `frequencyBinCount` ( a property of the AnalyserNode interface) equates to the number of data values we used for the visualization.
+```JavaScript
 this.bufferLength = this.analyser.frequencyBinCount;
-this.dataArray = new Uint8Array(this.bufferLength);
-```
-
-To extract data from the audio source (a locally saved .wav file) we first created an AnalyserNode using the .createAnalyser() method.
-```
-this.analyser = Howler.ctx.createAnalyser();
-```
-This node is then connected to the Howler audio source via the connect() method:
-```
-Howler.masterGain.connect(this.analyser);
 ```
 
 ### Playback
 
-  The primary functionality of the app, playback, logic is handled by an individual React `Playback` component.
-
-  When the user presses play the `startPlayback` action is fired, setting the `playback` slice of state to true.
-
-  Because `Playback` is connected to the `playback` slice of state the Redux lifecycle `componentWillReceiveProps` is fired.
-
-  Crucially this function clears and then starts the `play` interval:
+  The primary functionality of the app, playback, logic is handled by an individual React `Playback` component. When the user presses play the `startPlayback` action is fired, setting the `playback` slice of state to true. Because `Playback` is connected to the `playback` slice of state the Redux lifecycle `componentWillReceiveProps` is fired. Crucially this function clears and then starts the `play` interval:
 
   ```javascript
   window.clearInterval(this.play);
