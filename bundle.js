@@ -23307,7 +23307,11 @@
 	      'div',
 	      { className: 'controls-and-visualizer-container' },
 	      _react2.default.createElement(_controls2.default, null),
-	      _react2.default.createElement('canvas', { id: 'canvas' }),
+	      _react2.default.createElement(
+	        'canvas',
+	        { id: 'canvas' },
+	        'Your browser does not support canvas'
+	      ),
 	      _react2.default.createElement(_visualizer2.default, null)
 	    ),
 	    _react2.default.createElement(_board_container2.default, null)
@@ -44183,7 +44187,7 @@
 	
 	    var _this = _possibleConstructorReturn(this, (AboutModal.__proto__ || Object.getPrototypeOf(AboutModal)).call(this));
 	
-	    _this.state = { open: false };
+	    _this.state = { open: true };
 	
 	    _this.openModal = _this.openModal.bind(_this);
 	    _this.closeModal = _this.closeModal.bind(_this);
@@ -44206,6 +44210,16 @@
 	      this.setState({ open: false });
 	    }
 	  }, {
+	    key: 'handleClick',
+	    value: function handleClick() {
+	      var _this2 = this;
+	
+	      return function (e) {
+	        e.preventDefault();
+	        _this2.closeModal();
+	      };
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      return _react2.default.createElement(
@@ -44226,10 +44240,22 @@
 	          _react2.default.createElement(
 	            'div',
 	            { className: 'modal-content' },
-	            'freedm is a music sequencer made by Eric Kwok and Caleb Ontiveros.',
+	            'freedm is a music sequencer made by Eric Kwok and Caleb Ontiveros',
 	            _react2.default.createElement('br', null),
 	            _react2.default.createElement('br', null),
-	            'Click on a cell. Press play. Experience freedm.'
+	            'Press PLAY to hear the demo or press CLEAR to create your own sounds',
+	            _react2.default.createElement('br', null),
+	            _react2.default.createElement('br', null),
+	            'Click on a cell',
+	            _react2.default.createElement('br', null),
+	            'Press play',
+	            _react2.default.createElement('br', null),
+	            'Experience freedm',
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'btn-close-modal', onClick: this.handleClick() },
+	              _react2.default.createElement('i', { className: 'fa fa-times', 'aria-hidden': 'true' })
+	            )
 	          )
 	        )
 	      );
@@ -44254,19 +44280,20 @@
 	    borderColor: '#488d5a',
 	    position: 'absolute',
 	    color: '#ffffff',
-	    left: '50%',
-	    top: '40%',
-	    marginLeft: '-200px',
-	    marginTop: '-100px',
-	    border: '5px solid #488d5a',
-	    background: 'linear-gradient(to top right, #333, #888)',
+	    left: '48%',
+	    top: '44%',
+	    marginLeft: '-185px',
+	    marginTop: '-150px',
+	    border: '3px solid white',
+	    background: 'linear-gradient(to right top, rgb(11, 44, 59), rgb(72, 141, 90))',
 	    overflow: 'auto',
 	    WebkitOverflowScrolling: 'touch',
-	    borderRadius: '4px',
+	    borderRadius: '15px',
 	    outline: 'none',
-	    padding: '30px',
-	    height: '200px',
-	    width: '400px'
+	    padding: '40px 30px',
+	    height: '320px',
+	    width: '370px',
+	    boxShadow: '0 0 250px 50px black'
 	  }
 	};
 	
@@ -46276,7 +46303,7 @@
 	      return dispatch((0, _instruments_actions.addInstrument)(name));
 	    }
 	    // Either also dispatch import EXTEND_ON_NEW_INSTRUMENT,
-	    //  SHRINK_ON_NEW_INSTRUMENT on the corresponding instrument action in this componentWillMount
+	    // SHRINK_ON_NEW_INSTRUMENT on the corresponding instrument action in this componentWillMount
 	    // or dispatch in instrument middleware
 	  };
 	};
@@ -46787,8 +46814,7 @@
 	
 	      for (var i = 0; i < this.bufferLength; i++) {
 	        barHeight = this.dataArray[i];
-	
-	        this.canvasCtx.fillStyle = 'rgb(' + barHeight + ',' + (barHeight + 25) + ',' + barHeight + ')';
+	        this.canvasCtx.fillStyle = 'rgb(' + (barHeight - 75) + ',' + (barHeight - 50) + ',' + (barHeight - 75) + ')';
 	        this.canvasCtx.fillRect(x, this.HEIGHT - barHeight / 2, barWidth, barHeight / 2);
 	
 	        x += barWidth + 1;
@@ -49680,26 +49706,16 @@
 	
 	var _selected_sounds_actions = __webpack_require__(228);
 	
+	var _selected_sounds_states = __webpack_require__(356);
+	
 	var _merge = __webpack_require__(259);
 	
 	var _merge2 = _interopRequireDefault(_merge);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var nullState = {};
-	
-	for (var i = 1; i < 17; i++) {
-	  var cells = {};
-	  for (var j = 1; j < 17; j++) {
-	    cells[j] = false;
-	  }
-	  nullState[i] = cells;
-	}
-	
-	// const demoState = {};
-	
 	var SelectedSoundsReducer = function SelectedSoundsReducer() {
-	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : nullState;
+	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : _selected_sounds_states.demoState;
 	  var action = arguments[1];
 	
 	  Object.freeze(state);
@@ -49713,14 +49729,14 @@
 	      newState[action.col][action.track] = false;
 	      return newState;
 	    case _selected_sounds_actions.CLEAR_SELECTED_SOUNDS:
-	      return nullState;
+	      return _selected_sounds_states.nullState;
 	    case _selected_sounds_actions.EXTEND_ON_NEW_INSTRUMENT:
-	      for (var i = acion.startRow; i < action.startRow + 8; i++) {
-	        var _cells = {};
-	        for (var _j = 1; _j < 17; _j++) {
-	          _cells[_j] = false;
+	      for (var i = action.startRow; i < action.startRow + 8; i++) {
+	        var cells = {};
+	        for (var j = 1; j < 17; j++) {
+	          cells[j] = false;
 	        }
-	        newState[i] = _cells;
+	        newState[i] = cells;
 	      }
 	
 	      return newState;
@@ -50142,6 +50158,61 @@
 	  7: D,
 	  8: C
 	};
+
+/***/ },
+/* 356 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	exports.demoState = exports.nullState = undefined;
+	
+	var _lodash = __webpack_require__(214);
+	
+	var nullState = {};
+	
+	for (var i = 1; i < 17; i++) {
+	  var cells = {};
+	  for (var j = 1; j < 17; j++) {
+	    cells[j] = false;
+	  }
+	  nullState[i] = cells;
+	}
+	
+	var demoState = (0, _lodash.merge)({}, nullState);
+	// Drumkit cells
+	demoState[2][2] = true;
+	demoState[2][4] = true;
+	demoState[2][7] = true;
+	demoState[2][9] = true;
+	demoState[2][10] = true;
+	demoState[2][11] = true;
+	demoState[2][16] = true;
+	demoState[3][15] = true;
+	demoState[4][13] = true;
+	demoState[5][5] = true;
+	demoState[7][3] = true;
+	demoState[8][1] = true;
+	demoState[8][5] = true;
+	demoState[8][9] = true;
+	demoState[8][13] = true;
+	// LeadSynth cells
+	demoState[9][15] = true;
+	demoState[10][12] = true;
+	demoState[10][14] = true;
+	demoState[12][4] = true;
+	demoState[12][5] = true;
+	demoState[12][10] = true;
+	demoState[12][11] = true;
+	demoState[16][1] = true;
+	demoState[16][3] = true;
+	demoState[16][8] = true;
+	
+	exports.nullState = nullState;
+	exports.demoState = demoState;
 
 /***/ }
 /******/ ]);
