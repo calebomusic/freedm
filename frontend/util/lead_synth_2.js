@@ -33,12 +33,12 @@ const C  = new Howl({
 });
 
 export default {
-  9: C2,
-  10: Bb,
-  11: Ab,
-  12: G,
-  13: F,
-  14: Eb,
-  15: D,
-  16: C
+  1: C2,
+  2: Bb,
+  3: Ab,
+  4: G,
+  5: F,
+  6: Eb,
+  7: D,
+  8: C
 };
