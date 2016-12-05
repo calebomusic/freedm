@@ -12,8 +12,6 @@ class Volume extends React.Component {
   handleChange(e){
     e.preventDefault();
 
-    console.log(this.state.volume);
-
     const localVolume = parseInt(e.target.value);
     const howlerVolume = localVolume / 10;
 
