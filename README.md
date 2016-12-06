@@ -52,8 +52,8 @@ Following Redux principles, there is a single store or application state that se
       4: Object,
       ...
     },
-    volume: 0.7
-  }
+  volume: 0.7
+}
 ```
 
 Application state then holds everything necessary for a functional sequencer: bpm, the current column, instruments, playback, selected sounds, and volume.
