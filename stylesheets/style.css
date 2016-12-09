@@ -3,7 +3,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-image: url("../docs/wallhaven-259.png");
+  background-image: url("http://res.cloudinary.com/kwokeric/image/upload/v1481268932/wallhaven-259_fbskeo.png");
   background-size: cover;;
   padding: 10%;
   color: white;
