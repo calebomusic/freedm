@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Clear from './clear';
-// Actions
+
 import { clearSelectedSounds } from '../../../actions/selected_sounds_actions';
 
 const mapStateToProps = state => ({

@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 const DRUM_NAMES = [
   "hi-hat2",
   "hi-hat1",
@@ -23,7 +22,6 @@ const NOTE_NAMES = [
   "C1"
 ]
 
-
 class Tab extends React.Component {
   constructor(props) {
     super(props);
@@ -33,42 +31,7 @@ class Tab extends React.Component {
     this.removeSound = this.removeSound.bind(this);
 
     this.renderCells = this.renderCells.bind(this);
-    // this.newDrumKit = this.newDrumKit.bind(this);
   }
-
-  // drumkit() {
-  //   let drumkitListItems = [];
-  //
-  //   for (let row = 1; row < 9; row++) {
-  //     drumkitListItems.push(this.renderRow(row, tracks[row]));
-  //   }
-  //
-  //   return(
-  //     <ul className="drumkit-tracks">
-  //       {drumkitListItems}
-  //     </ul>
-  //   );
-  // }
-
-  // newDrumKit() {
-  //   return(
-  //     {this.renderCells()}
-  //   );
-  // }
-  //
-  // melody() {
-  //   let melodyListItems = [];
-  //
-  //   for (let row = 9; row < 17; row++) {
-  //     melodyListItems.push(this.renderRow(row, tracks[row]));
-  //   }
-  //
-  //   return(
-  //     <ul className="melody-tracks">
-  //       {melodyListItems}
-  //     </ul>
-  //   );
-  // }
 
   renderCells(start) {
     const cells = [];
@@ -91,25 +54,6 @@ class Tab extends React.Component {
       </div>
     );
   }
-
-  // renderRow(row, track) {
-  //   let cells = [];
-  //
-  //   for (let col = 1; col < 17; col++) {
-  //     cells.push(this.renderCell(row, col));
-  //   }
-  //
-  //   return(
-  //     <li className={`row-${track}`} key={`row-${track}`}>
-  //       <div className={`label-${track}`}>{track}</div>
-  //       <div className="cell-container">
-  //         <ul className={`cells-${track}`}>
-  //           {cells}
-  //         </ul>
-  //       </div>
-  //     </li>
-  //   );
-  // }
 
   renderRowTitleButtons(instrumentName) {
     const names = instrumentName[0] == 'D' ? DRUM_NAMES : NOTE_NAMES
@@ -173,7 +117,7 @@ class Tab extends React.Component {
     let tabName = "tab-" + this.props.tab;
 
     // TODO: take out drumkit and melody container classes. Consolidate into one.
-    
+
     if (this.props.tab[0] === "D") {
       return(
         <div className="drumkit-tracks-container">

@@ -1,13 +1,11 @@
 import React from 'react';
 import TabContainer from './tab_container';
 
-// Components
-
 class Board extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {selectedTab: "DrumKit1"};
+    this.state = {selectedTab: "DrumKit"};
     this.renderTabButtons = this.renderTabButtons.bind(this);
   }
 
@@ -55,12 +53,3 @@ class Board extends React.Component {
 }
 
 export default Board;
-
-// <div className={`btn-drumkit ${this.isActive("drumkit")}`}
-//      onClick={this.changeTab("drumkit")}>
-//   DRUMS
-// </div>
-// <div className={`btn-melody ${this.isActive("melody")}`}
-//      onClick={this.changeTab("melody")}>
-//   MELODY
-// </div>

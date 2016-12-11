@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Tab from './tab';
-// Actions
+
 import { addSelectedSound,
          removeSelectedSound
        } from '../../actions/selected_sounds_actions';

@@ -82,9 +82,9 @@ class Visualizer extends React.Component {
 
       // this.canvasCtx.fillStyle = `rgb(${(barHeight % 10) + 39}, ${(barHeight % 20) + 165}, 97)`;
       // this.canvasCtx.fillStyle = `rgb(${barHeight % 10 + 64},140,97)`;
-      // this.canvasCtx.fillStyle = `rgb(72, 141, ${(85 + (i * 2))})`;
+      this.canvasCtx.fillStyle = `rgb(72, 141, ${(85 + (i * 2))})`;
 
-      this.canvasCtx.fillStyle = `rgb(${barHeight  - 75},${(barHeight % 10) + 141}, ${(85 + (i * 2))}`;
+      // this.canvasCtx.fillStyle = `rgb(${barHeight  - 75},${(barHeight % 10) + 141}, ${(85 + (i * 2))}`;
       //green 74 140 85
       // blue 44, 104, 166
       this.canvasCtx.fillRect(x,this.HEIGHT-barHeight/2,barWidth,barHeight/2);

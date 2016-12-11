@@ -1,7 +1,5 @@
 import React from 'react';
 
-// Components
-
 class SelectedSounds extends React.Component {
   constructor(props) {
     super(props);

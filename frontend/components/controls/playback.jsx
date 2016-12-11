@@ -1,8 +1,6 @@
 import React from 'react';
 import { isEqual, max } from 'lodash';
 
-import LeadSynths from '../../util/lead_synth_1';
-import DrumKit1 from '../../util/drum_kit_1';
 import Instruments from '../../util/instruments';
 
 class Playback extends React.Component {
@@ -81,16 +79,6 @@ class Playback extends React.Component {
   }
 
   playSounds() {
-    // for (let row = 1; row < this.maxKey; row++) {
-    //   if (this.props.selectedSounds[row][this.props.column]) {
-    //     DrumKit1[row].play();
-    //   }
-    // }
-    // for (let row = 9; row < 17; row++) {
-    //   if (this.props.selectedSounds[row][this.props.column]) {
-    //     LeadSynths[row].play();
-    //   }
-    // }
     for (let row = 1; row < this.maxStartRow + 8; row++) {
       if (this.props.selectedSounds[row][this.props.column]) {
         let instrumentIdx = Math.floor(row / 8);
