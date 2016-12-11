@@ -5,11 +5,11 @@ import merge from 'lodash/merge';
 
 const defaultInstruments = [
   {
-    name: 'DrumKit1',
+    name: 'DrumKit',
     startRow: 1
   },
   {
-    name: 'LeadSynth1',
+    name: 'LeadSynth',
     startRow: 9
   }];
 
