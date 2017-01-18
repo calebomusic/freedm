@@ -4,7 +4,7 @@ body {
   justify-content: center;
   align-items: center;
   background-image: url("https://res.cloudinary.com/kwokeric/image/upload/v1481268932/wallhaven-259_fbskeo.png");
-  background-size: cover;;
+  background-size: cover;
   padding: 10%;
   color: white;
   font-family: Raleway;
@@ -281,4 +281,167 @@ li[class^="cell"]:hover {
 
 .hidden {
   display: none;
+}
+
+ul[class^="cells"] {
+  display: block;
+}
+
+li[class^="selected-current-column-cell"] {
+  float: left;
+  height: 40px;
+  width: 40px;
+  margin: 2px;
+  border-radius: 2px;
+  background: #488d5a;
+
+  animation:pulse 2s;
+  -moz-animation:pulse 2s infinite; /* Firefox */
+  -webkit-animation:pulse 2s infinite; /* Safari and Chrome */
+}
+
+@-moz-keyframes pulse /* Firefox */
+{
+  25%   {background: #1a2a19;}
+  50%   {background: #488d5a;}
+  100%   {background: #488d5a;}
+}
+
+@-webkit-keyframes pulse /* Safari and Chrome */
+{
+  25%   {background: #1a2a19;}
+  50%   {background: #488d5a;}
+  100%   {background: #488d5a;}
+}
+
+/*For cells that are in the current column but are not selected*/
+li[class^="current-column-cell"] {
+  float: left;
+  height: 40px;
+  width: 40px;
+  margin: 2px;
+  border-radius: 2px;
+  background: linear-gradient(to top right, #333, #888);
+}
+
+li[class^="current-column-cell"]:hover {
+  background: linear-gradient(to top right, #222, #444);
+}
+
+/*For selected cells that are not in the current column*/
+li[class^="selected-cell"] {
+  float: left;
+  height: 40px;
+  width: 40px;
+  margin: 2px;
+  border-radius: 2px;
+  background: linear-gradient(to top right, #1a2a19, #488d5a);
+}
+
+/* For alternating bars. Consider switching background w/ normal cell background in style.scss*/
+li[class^="alternating-cell"] {
+  float: left;
+  height: 40px;
+  width: 40px;
+  margin: 2px;
+  border-radius: 2px;
+  background: linear-gradient(to top right, #111, #333);
+}
+
+li[class^="alternating-cell"]:hover {
+  background: linear-gradient(to top right, #050505, #222);
+}
+
+.modal-content {
+  color: white;
+  font-size: 20px;
+  letter-spacing: 1px;
+  line-height: 1.5;
+}
+
+.btn-close-modal {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border: 2px solid white;
+  border-radius: 50%;
+  top: 0;
+  right: 1px;
+  transition: 0.4s;
+  cursor: pointer;
+}
+
+.btn-close-modal:hover {
+  border: 2px solid #333;
+  color: #333;
+}
+
+ul[class^="cells"] {
+  display: block;
+  max-height: 44px;
+  max-width: 704px;
+  overflow: scroll;
+}
+
+li[class^="cell"] {
+  float: left;
+  height: 40px;
+  width: 40px;
+  margin: 2px;
+  border-radius: 2px;
+  background: linear-gradient(to top right, #222, #555);
+}
+
+li[class^="cell"]:hover {
+  background: linear-gradient(to top right, #111, #222);
+}
+
+li[class^="label"] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 40px;
+  margin: 0 20px 0 0;
+  border-radius: 3px;
+  float: left;
+  font-size: 16px;
+  letter-spacing: 2px;
+  background: linear-gradient(to top right, #111, #333);
+  cursor: default;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+
+.drumkit-tracks-container, .melody-tracks-container {
+  height: 350px;
+  display: flex;
+  flex-direction: row;
+  overflow: none;
+}
+
+.track-labels {
+  display: flex;
+  flex-direction: column;
+  width: 240px;
+}
+
+.cell-container {
+  float: left;
+  /*Change the below width if we re-introduce scrolling*/
+  max-width: 800px;
+  max-height: 350px;
+  /*overflow-x: scroll;*/
+  /*overflow-y: hidden;*/
+}
+
+.cell-row {
+  display: inline-block;
+  float: left;
+  flex-wrap: nowrap;
+  max-height: 42px;
+  /*width: 2860px;*/
+  padding-bottom: 1px;
+  padding-top: 1px;
+  padding: 1px;
 }
