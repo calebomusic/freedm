@@ -14,10 +14,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
   ReactDOM.render(<Root store={store}/>, root);
 
-  // Todo: testing
-  window.store = store;
-  window.addInstrument = (name) => store.dispatch(addInstrument(name));
-  window.removeInstrument = (name) => store.dispatch(removeInstrument(name));
-  window.extendOnNewInstrument = () => store.dispatch(extendOnNewInstrument());
-  window.extendOnNewInstrument = () => store.dispatch(extendOnNewInstrument());
 });
+
+// Todo: handleScrolling
+window.addEventListener("keydown", function(e) {
+    if([32, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {
+        e.preventDefault();
+    }
+}, false);
+
+window.addEventListener("scroll", function(e) {
+    e.preventDefault();
+}, false);
